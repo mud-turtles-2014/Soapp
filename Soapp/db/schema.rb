@@ -49,11 +49,13 @@ ActiveRecord::Schema.define(version: 20141016155212) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "token"
+    t.string   "github_uid",   null: false
+    t.string   "name",         null: false
+    t.string   "display_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["github_uid"], name: "index_users_on_github_uid", unique: true, using: :btree
 
 end
