@@ -1,6 +1,6 @@
 Soapp::Application.routes.draw do
   resources :commits
-  post "make-commit" => 'commits#make_commit'
+  post "/make-commit" => 'commits#make_commit'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
