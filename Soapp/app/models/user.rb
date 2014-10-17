@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :team_projects
+  has_many :branches
   has_many :repos, through: :team_projects
 
   validates_presence_of :uid, :name, :email, :token

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20141016155212) do
 
   create_table "branches", force: true do |t|
     t.integer  "repo_id"
+    t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
