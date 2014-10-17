@@ -7,7 +7,7 @@ Soapp::Application.routes.draw do
 
   resources :commits , only: [:create]
 
-  root 'repos#index'
+  root 'application#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
 

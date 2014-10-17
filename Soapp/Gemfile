@@ -45,8 +45,10 @@ end
 # gem 'devise'
 
 gem 'omniauth-github'
+gem "github_api"
 
 group :test, :development do
   gem 'dotenv-rails'
 end
 
+# gem 'pry'
