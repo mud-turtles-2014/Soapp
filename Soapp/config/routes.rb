@@ -11,6 +11,9 @@ Soapp::Application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#create'
 
+  resources :commits
+  post "/create_commit" => 'commits#create_commit'
+
 
 
   # You can have the root of your site routed with "root"
