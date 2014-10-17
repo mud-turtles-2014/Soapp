@@ -4,11 +4,20 @@ before_action :get_commit, except: :create_commit
 
   def create_commit
     @user = User.find_by(email: commit_email_params[:email])
-    @user.branches << Branch.find_or_create_by(name: branch_params[:name])
-    @user.branches@diffs = FileChanges.parsethatshit
-    @branch.commits.create(commit_params)
-    @branch.commits.last addsomediffs
-    @branch.to_json
+    files = FileChange.parse_and_create(commit_params[:diff])
+    p @files
+    # get the commit... commit = ...
+
+
+    commit = @branch.commits.create(commit_params)
+    commit.file_changes = files
+
+    # @user.branches << Branch.find_or_create_by(name: branch_params[:name])
+    # @user.branches@diffs = FileChanges.parsethatshit
+    # @branch.commits.create(commit_params)
+    # @branch.commits.last addsomediffs
+    # @branch.to_json
+    redirect
   end
 
   def get_commit
@@ -23,7 +32,7 @@ before_action :get_commit, except: :create_commit
   private
   def commit_params
     p params
-    params.require(:commit).permit(:sha,:message)
+    params.require(:commit).permit(:sha,:message, :diff)
     # params.require(:commit).permit(:message)
   end
 
