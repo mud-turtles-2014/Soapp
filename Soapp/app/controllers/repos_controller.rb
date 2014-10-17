@@ -5,8 +5,8 @@ class ReposController < ApplicationController
     @github = Github.new  oauth_token: @user.token
     @repos = @github.repos.list
 
-    @soapps = Repo.all
-    # @soapps = @user.repo
+    # @soapps = Repo.all
+    @soapps = @user.repos.all
   end
 
   def new
@@ -14,8 +14,10 @@ class ReposController < ApplicationController
   end
 
   def create
-  	@repo = Repo.new(repo_params)
+    @user = User.find(session[:user_id])
+    @repo = Repo.find_or_create_by(repo_params)
   	if @repo.save
+      @user.repos << @repo
   		redirect_to repos_path
   	else
   		redirect_to new_repo_path
