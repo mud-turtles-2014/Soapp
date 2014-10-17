@@ -1,15 +1,10 @@
 
 
-<h2>Soapp Repositories:</h2>
+<h1>Soapp Repositories:</h1>
 <ul>
-<% @soapps.each do |repo| %>
-  <li><%= repo.name %> </li>
-<% end %>
-</ul>
-
-<h2>Repositories:</h2>
-<ul>
-<% @repos.each do |repo| %>
-  <li><%= repo.clone_url%> </li>
-<% end %>
+  <% if !@soapps_repos.nil? %>
+    <% @soapps_repos.each do |repo| %>
+      <li><%= link_to "#{repo.name}", repos_path(repo)%></li>
+    <% end %>
+  <% end %>
 </ul>

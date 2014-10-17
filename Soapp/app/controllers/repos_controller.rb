@@ -1,21 +1,19 @@
 class ReposController < ApplicationController
 
+
   def index
     @user = User.find(session[:user_id])
-    @github = Github.new  oauth_token: @user.token
-    @repos = @github.repos.list
-
-    # @soapps = Repo.all
-    @soapps = @user.repos.all
+    @soapps_repos = @user.repos.all
   end
 
   def new
-  	@repo =Repo.new
+    @repos = get_repos
+  	@repo = Repo.new
   end
 
   def create
     @user = User.find(session[:user_id])
-    @repo = Repo.find_or_create_by(repo_params)
+    @repo = Repo.find_or_create_by(name: repo_params)
   	if @repo.save
       @user.repos << @repo
   		redirect_to repos_path
@@ -30,7 +28,17 @@ class ReposController < ApplicationController
 
 private
   def repo_params
-    params.require(:repo).permit( [:name])
+    params.require(:name)
+  end
+
+  def get_repos
+    @user = User.find(session[:user_id])
+    github = Github.new  oauth_token: @user.token
+    repos = []
+    github.repos.list.each do |repo|
+      repos << repo.clone_url
+    end
+    repos
   end
 
 end
