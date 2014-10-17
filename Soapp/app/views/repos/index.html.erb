@@ -1,3 +1,7 @@
-<br>
 
 <h2>Repositories:</h2>
+<ul>
+<% @repos.each do |repo| %>
+  <li><%= repo.clone_url%> </li>
+<% end %>
+</ul>

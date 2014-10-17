@@ -1,6 +1,10 @@
 class ReposController < ApplicationController
 
   def index
+    @user = User.find(session[:user_id])
+    @github = Github.new  oauth_token: @user.token
+
+    @repos = @github.repos.list
   end
 
   def new
