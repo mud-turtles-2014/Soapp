@@ -3,21 +3,16 @@ class CommitsController < ApplicationController
 before_action :get_commit, except: :create_commit
 
   def create_commit
-    @user = User.find_by(email: commit_email_params[:email])
+    user = User.find_by(email: commit_email_params[:email])
     file_changes = FileChange.parse_and_create(diff_params[:diff])
     commit = Commit.create(commit_params)
     commit.file_changes = file_changes
-    p branch_params[:name]
-    branch = Branch.create(name: branch_params[:name])
+    branch = Branch.find_or_create_by(name: branch_params[:name])
+    repo = Repo.find_by(name: repo_params[:repo])
+    repo.branches << branch
 
-
-
-    # @user.branches << Branch.find_or_create_by(name: branch_params[:name])
-    # @user.branches@diffs = FileChanges.parsethatshit
-    # @branch.commits.create(commit_params)
-    # @branch.commits.last addsomediffs
-    # @branch.to_json
-
+    200
+    render nothing: true
   end
 
   def get_commit
@@ -30,6 +25,7 @@ before_action :get_commit, except: :create_commit
   end
 
   private
+
   def commit_params
     params.require(:commit).permit(:sha,:message)
   end
@@ -44,6 +40,9 @@ before_action :get_commit, except: :create_commit
 
   def diff_params
     params.require(:commit).permit(:diff)
+  end
+  def repo_params
+    params.require(:commit).permit(:repo)
   end
 #comment
 end
