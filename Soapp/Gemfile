@@ -51,4 +51,4 @@ group :test, :development do
   gem 'dotenv-rails'
 end
 
-gem 'pry'
+# gem 'pry'
