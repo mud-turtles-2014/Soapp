@@ -4,7 +4,7 @@
 <ul>
   <% if !@soapps_repos.nil? %>
     <% @soapps_repos.each do |repo| %>
-      <li><%= repo.name %> </li>
+      <li><%= link_to "#{repo.name}", repos_path(repo)%></li>
     <% end %>
   <% end %>
 </ul>
