@@ -18,6 +18,7 @@ before_action :get_commit, except: :create_commit
 
   private
   def commit_params
+    params.require(:branch).permit(:sha, :branch,:diff,:commit_msg)
     params.require(:commit).permit(:sha, :branch,:diff,:commit_msg)
     # params.require(:commit).permit(:message)
   end
