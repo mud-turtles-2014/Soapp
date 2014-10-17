@@ -7,9 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<h1>SOAPP</h1><br>
+	<h3>State Of The APP</h3>
 <%= flash[:notice] %>
 <%= link_to 'Sign in with github', '/auth/github/' %>
-
+<%=link_to "New", new_repo_path %>
 <%= yield %>
 
 </body>
