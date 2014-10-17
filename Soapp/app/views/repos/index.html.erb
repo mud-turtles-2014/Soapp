@@ -1,4 +1,12 @@
 
+
+<h2>Soapp Repositories:</h2>
+<ul>
+<% @soapps.each do |repo| %>
+  <li><%= repo.name %> </li>
+<% end %>
+</ul>
+
 <h2>Repositories:</h2>
 <ul>
 <% @repos.each do |repo| %>
