@@ -1,12 +1,6 @@
-Create Repository:
-
-<%=form_for @repo do |f|%>
-New Repo Name:
-<%=f.text_field :name%>
-<%=f.submit "save", :class => "button" %>
+<h3>Select A Repo:</h3>
+<%= form_tag @repo do |f| %>
+   <%= select_tag(:name, options_for_select(@repos)) %>
+    <%= submit_tag ("Add Repo" )%>
 <% end %>
 
-Generate New Hook Key for Repo:
-<button>Generate</button>
-
-____
