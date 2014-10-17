@@ -5,7 +5,6 @@ Soapp::Application.routes.draw do
     resources :branches
   end
 #testing
-#testing
   resources :commits , only: [:create]
 
   root 'repos#index'
