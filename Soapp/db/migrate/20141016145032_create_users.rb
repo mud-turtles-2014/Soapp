@@ -1,13 +1,15 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.string :github_uid, null: false
+      t.string :uid, null: false
       t.string :name, null: false
-      t.string :display_name
+      t.string :email, null: false
+      t.string :token, null: false
+      t.string :avatar_url
 
       t.timestamps
     end
-    add_index "users", ["github_uid"], name: "index_users_on_github_uid", unique: true, using: :btree
+    add_index "users", ["uid"], name: "index_users_on_uid", unique: true, using: :btree
   end
 end
 # provider:string uid:string name:string
