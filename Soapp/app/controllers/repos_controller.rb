@@ -28,8 +28,6 @@ class ReposController < ApplicationController
 
 private
   def repo_params
-    p  "*" * 80
-    p params
     params.require(:name)
   end
 
