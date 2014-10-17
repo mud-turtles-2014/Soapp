@@ -1,0 +1,12 @@
+Create Repository:
+
+<%=form_for @repo do |f|%>
+New Repo Name:
+<%=f.text_field :name%>
+<%=f.submit "save", :class => "button" %>
+<% end %>
+
+Generate New Hook Key for Repo:
+<button>Generate</button>
+
+____
