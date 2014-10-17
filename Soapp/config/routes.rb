@@ -4,12 +4,15 @@ Soapp::Application.routes.draw do
   resources :repos do
     resources :branches
   end
-
+#testing
   resources :commits , only: [:create]
 
   root 'application#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
+
+  resources :commits
+  post "/create_commit" => 'commits#create_commit'
 
 
 
