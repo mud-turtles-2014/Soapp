@@ -26,13 +26,15 @@ ActiveRecord::Schema.define(version: 20141016155212) do
   create_table "commits", force: true do |t|
     t.integer  "branch_id"
     t.string   "message"
+    t.string   "sha"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "file_changes", force: true do |t|
     t.integer  "commit_id"
-    t.text     "change"
+    t.text     "file_path"
+    t.string   "action_taken"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
