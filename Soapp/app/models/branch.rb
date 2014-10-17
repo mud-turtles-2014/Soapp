@@ -3,4 +3,6 @@ class Branch < ActiveRecord::Base
     has_many :commits
     belongs_to :user
     validates :name, presence: true
+
+
 end
