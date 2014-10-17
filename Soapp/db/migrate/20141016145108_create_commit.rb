@@ -3,6 +3,8 @@ class CreateCommit < ActiveRecord::Migration
     create_table :commits do |t|
       t.belongs_to :branch
       t.string :message
+      t.string :sha
+
       t.timestamps
     end
   end
