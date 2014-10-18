@@ -4,6 +4,8 @@
 <% @user_branches.first.commits.each do |commit| %>
   <%= commit.message %>
   <br>
+  <%= link_to commit.sha, commit_path(commit.sha) %>
+  <br>
   Changes:
   <% commit.file_changes.each do |change| %>
   Type: <%= change.action_taken %><br>
