@@ -10,8 +10,10 @@ before_action :get_commit, except: :create_commit
     branch = Branch.find_or_create_by(name: branch_params[:name])
     user.branches << branch
     branch.commits << commit
+    branch.update(last_commit: Time.now)
 
     repo = Repo.find_by(name: repo_params[:repo])
+    repo.update(last_commit: Time.now)
     repo.branches << branch
 
     200
