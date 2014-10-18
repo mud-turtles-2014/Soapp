@@ -1,0 +1,167 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+hr {
+  color: #CCC;
+  background-color: #CCC;
+  height: 1px;
+}
+
+header {
+  width: 100%;
+  height: 30px;
+  background-color: #35C97A;
+  display: block;
+
+  font-size: 0.9em;
+  .logo {
+    float: left;
+    line-height: 30px;
+    a{
+      color: #fff;
+      line-height: 30px;
+      padding: 20px;
+    }
+    a:hover {
+      color: #CCC;
+    }
+  }
+  nav {
+    float: right;
+    width: 30%;
+    background-color: #fff;
+
+    ul {
+      margin: 0;
+      a {
+        color: #777;
+        line-height: 30px;
+      }
+    }
+  }
+}
+
+.intro {
+  width: 100%;
+  max-height: 100px;
+  .intro-title{
+    margin: 0 3%;
+    h3 {
+      margin-bottom: 0;
+      font-size: 0.8em;
+    }
+    p{
+      margin-top: 0;
+      color: #777;
+      font-size: 0.8em;
+    }
+  }
+  .intro-video {
+    position: relative;
+    img {
+      position: relative;
+      max-width: 100%;
+    }
+    .little-description {
+      position: absolute;
+      width: 50%;
+      bottom: 0;
+      padding: 2%;
+
+      color: #888;
+      background-color: #fff;
+      padding-left: 4%;
+    }
+  }
+
+}
+.intro-text {
+      padding: 6%;
+      color: #888;
+      font-size: 0.9em;
+      ul {
+        margin-top: 20%;
+        padding: 0;
+        width: 100%;
+        li {
+          position: relative;
+          width: 50%;
+          text-align: center;
+
+          float: left;
+          a {
+            padding: 10px 30%;
+            background-color: #35C97A;
+            color: #fff;
+            margin: 0 auto;
+          }
+          a:hover {
+            background-color: #3CE38A;
+          }
+          a:visited {
+            color: #fff;
+          }
+        }
+      }
+
+    }
+
+.repositories {
+  width: 100%;
+  padding: 5%;
+  .new-repo {
+    font-weight: 600;
+    a{
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    p {
+      padding: 0;
+      margin: 0;
+      font-size: 0.8em;
+      color: #3CE38A;
+      top: -5px;
+    }
+  }
+  .content-repo {
+    width: 100%;
+    float: right;
+    .content-title {
+      margin-top: 5%;
+      height: 100%;
+      img {
+        margin-right: 5%;
+        width: 50px;
+        height: 50px;
+        float: left;
+        border-radius: 25px;
+      }
+      h3{
+        line-height: 50px;
+      }
+    }
+  }
+  .content-commits{
+    h4 {
+      color: #35C97A;
+      margin-bottom: 0;
+    }
+    ul{
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .branch_list {
+    display: none;
+  }
+}
