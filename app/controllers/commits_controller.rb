@@ -25,7 +25,6 @@ before_action :get_commit, except: :create_commit
   end
 
   def show
-
   end
 
   private
