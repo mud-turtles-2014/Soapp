@@ -4,12 +4,15 @@ class ReposController < ApplicationController
   def index
     @user = User.find(session[:user_id])
     @soapps_repos = @user.repos.all
+
+    @github_repos = get_github_repos
+    @repo = Repo.new
   end
 
-  def new
-    @repos = get_repos
-  	@repo = Repo.new
-  end
+  # def new
+  #  #  @repos = get_repos
+  # 	# @repo = Repo.new
+  # end
 
   def create
     @user = User.find(session[:user_id])
@@ -31,7 +34,7 @@ private
     params.require(:name)
   end
 
-  def get_repos
+  def get_github_repos
     @user = User.find(session[:user_id])
     github = Github.new  oauth_token: @user.token
     repos = []
