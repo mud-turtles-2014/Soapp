@@ -1,1 +1,23 @@
-BOOOP
+<%= @user_branches.first.name %>
+<br>
+
+<% @user_branches.first.commits.each do |commit| %>
+  <%= commit.message %>
+  <br>
+  Changes:
+  <% commit.file_changes.each do |change| %>
+  Type: <%= change.action_taken %><br>
+  File name: <%= change.file_path %>
+
+  <% end %>
+  Time of commit: <%= commit.created_at %>
+<% end %>
+<br><br><br>
+Recent team commits:
+
+<% @non_user_branches.each do |branch| %>
+  <%= image_tag(branch.user.avatar_url)%><br>
+  User name:<%= branch.user.name %><br>
+  Branch name:<%= branch.name %><br>
+<%end%>
+
