@@ -4,6 +4,8 @@ class CreateBranch < ActiveRecord::Migration
       t.belongs_to :repo
       t.belongs_to :user
       t.string :name
+
+      t.timestamp :last_commit
       t.timestamps
     end
   end

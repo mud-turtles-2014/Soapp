@@ -8,7 +8,9 @@ before_action :get_commit, except: :create_commit
     commit = Commit.create(commit_params)
     commit.file_changes = file_changes
     branch = Branch.find_or_create_by(name: branch_params[:name])
+    branch.update(last_commit: Time.now)
     repo = Repo.find_by(name: repo_params[:repo])
+    repo.update(last_commit: Time.now)
     repo.branches << branch
 
     200
