@@ -8,8 +8,8 @@
   <br>
   Changes:
   <% commit.file_changes.each do |change| %>
-  Type: <%= change.action_taken %><br>
-  File name: <%= change.file_path %>
+    Type: <%= change.action_taken %><br>
+    File name: <%= change.file_path %>
 
   <% end %>
   Time of commit: <%= commit.created_at %>
