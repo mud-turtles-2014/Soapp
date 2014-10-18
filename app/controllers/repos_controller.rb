@@ -25,7 +25,11 @@ class ReposController < ApplicationController
   	end
   end
 
-  def boop
+  def show
+    @user = User.find(session[:user_id])
+    branches = Repo.find(params[:id]).branches
+    @non_user_branches = branches.where.not(user_id: @user.id)
+    @user_branches = branches.where(user_id: @user.id)
   end
 
 
