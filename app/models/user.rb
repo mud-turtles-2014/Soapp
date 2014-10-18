@@ -7,7 +7,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :uid, :token
 
   def self.from_omniauth(auth)
-    where(auth.slice('email')).first || create_with_omniauth(auth)
+    p "*" * 20
+    p auth
+    where(email: auth.slice('email')).first || create_with_omniauth(auth)
   end
 
   def self.create_with_omniauth(auth)
