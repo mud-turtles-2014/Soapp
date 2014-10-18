@@ -8,7 +8,10 @@ before_action :get_commit, except: :create_commit
     commit = Commit.create(commit_params)
     commit.file_changes = file_changes
     branch = Branch.find_or_create_by(name: branch_params[:name])
+    user.branches << branch
+    branch.commits << commit
     branch.update(last_commit: Time.now)
+
     repo = Repo.find_by(name: repo_params[:repo])
     repo.update(last_commit: Time.now)
     repo.branches << branch
@@ -18,8 +21,7 @@ before_action :get_commit, except: :create_commit
   end
 
   def get_commit
-    @commit = Commit.find_by(sha: commit_params[:sha])
-
+    @commit = Commit.find_by(sha: params[:id])
   end
 
   def show
