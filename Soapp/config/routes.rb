@@ -10,6 +10,7 @@ Soapp::Application.routes.draw do
   root 'application#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
+  get '/sessions/destroy', to: 'sessions#destroy', as: :logout
 
   resources :commits
   post "/create_commit" => 'commits#create_commit'
