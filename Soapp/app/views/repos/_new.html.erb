@@ -1,0 +1,13 @@
+<div class="new-repo">
+  <%=link_to "NEW", new_repo_path %>
+  <p>add a repo</p>
+
+  <div class="display-repos">
+    <h3>Select A Repo:</h3>
+    <%= form_tag @repo do |f| %>
+       <%= select_tag(:name, options_for_select(@github_repos)) %>
+        <%= submit_tag ("Add Repo" )%>
+    <% end %>
+  </div>
+</div>
+

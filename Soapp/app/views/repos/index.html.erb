@@ -1,32 +1,8 @@
 <div class="repositories">
-  <div class="new-repo">
-    <%=link_to "NEW", new_repo_path %>
-    <p>add a repo</p>
-  </div>
+  <%= render 'new' %>
+
   <div class="content-repo">
-    <div class="content-title">
-      <%= image_tag(@user.avatar_url) %>
-      <h3>WELCOME BACK <%= @user.name.upcase %>!</h3>
-    </div>
-    <div class="content-commits">
-      <h4>REPOSITORIES</h4>
-      <hr>
-      <ul>
-      <% if !@soapps_repos.nil? %>
-        <% @soapps_repos.each do |repo| %>
-          <li class="repo-button"><%= repo.name %></li>
-          <ul class="branch_list">
-            <li>BRANCH MERP</li>
-          </ul>
-        <% end %>
-      <% end %>
-      </ul>
-    </div>
-    <div class="intro-text">
-      <ul>
-        <li><%= link_to 'REPOS', repos_path %></li>
-        <li><%= link_to 'ACTIVATE', root_path %></li>
-      </ul>
-    </div>
+    <%= render 'my_card' %>
+    <%= render 'card_repo' %>
   </div>
 </div>

@@ -132,11 +132,14 @@ header {
       color: #3CE38A;
       top: -5px;
     }
+    .display-repos {
+      display: none;
+    }
   }
   .content-repo {
     width: 100%;
     float: right;
-    .content-title {
+    .card-repo {
       margin-top: 5%;
       height: 100%;
       img {

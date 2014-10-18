@@ -1,6 +1,15 @@
 $(document).ready(function(){
-
-
-  // $('.repo-button').children().hide();
-  // $("li").hide();
+  var showOrHide = true;
+  $('.new-repo a').click(function(e){
+    e.preventDefault();
+    $('.display-repos').toggle('slow', function(){
+      if ( showOrHide === true ) {
+        $(this).show();
+        showOrHide = false;
+      } else if ( showOrHide === false ) {
+        $(this).hide();
+        showOrHide = true;
+      }
+    });
+  });
 });
