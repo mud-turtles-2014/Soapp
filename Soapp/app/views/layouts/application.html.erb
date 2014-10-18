@@ -4,15 +4,25 @@
   <title>Soapp</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
+  <script src="jquery/jquery-1.8.3.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<h1>SOAPP</h1><br>
-	<h3>State Of The APP</h3>
-<%= flash[:notice] %>
-<%= link_to 'Sign in with github', '/auth/github/' %>
-<%=link_to "New", new_repo_path %>
-<%= yield %>
+  <header>
+    <div class="logo"><%= link_to 'SOAPP', root_path %></div>
+    <nav>
+      <ul>
+        <% if session[:user_id] %>
+          <li><%= link_to 'log out', '/auth/github/' %></li>
+        <% else %>
+          <li><%= link_to 'log in', '/auth/github/' %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </header>
+  <%= flash[:notice] %>
+
+  <%= yield %>
 
 </body>
 </html>
