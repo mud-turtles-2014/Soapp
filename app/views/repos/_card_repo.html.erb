@@ -1,7 +1,7 @@
 <div class="card-repos">
   <% if !@soapps_repos.nil? %>
     <% @soapps_repos.each do |repo| %>
-      <h4><%= repo.name %> REPO</h4>
+      <h4><%= link_to repo.name , repo_path(repo.id)  %></h4>
       <hr>
       <ul class="branch_list">
         <li>BRANCH MERP</li>
