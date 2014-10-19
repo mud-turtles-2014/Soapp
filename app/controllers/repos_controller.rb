@@ -16,9 +16,9 @@ class ReposController < ApplicationController
 
   def create
     @user = User.find(session[:user_id])
-    @repo = Repo.find_or_create_by(name: repo_params)
+    @repo = @user.repos.find_or_create_by(name: repo_params)
+    # render json: @repo
   	if @repo.save
-      @user.repos << @repo
   		redirect_to repos_path
   	else
   		redirect_to new_repo_path
@@ -27,15 +27,23 @@ class ReposController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
+
+
     branches = Repo.find(params[:id]).branches
     @non_user_branches = branches.where.not(user_id: @user.id)
+
     @user_branches = branches.where(user_id: @user.id)
+
     @collisions = branches.first.repo.find_collisions
   end
 
 
 private
   def repo_params
+    params.require(:name)
+  end
+
+  def branch_params
     params.require(:name)
   end
 
