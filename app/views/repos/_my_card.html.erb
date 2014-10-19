@@ -6,16 +6,21 @@
     <h4>MY LAST COMMITS</h4>
     <hr>
     <ul>
-<!--
+
     <% if !@soapps_repos.nil? %>
       <% @soapps_repos.each do |repo| %>
-        <li class="repo-button"><%= repo.name %></li>
-        <ul class="branch_list">
-          <li>BRANCH MERP</li>
-        </ul>
+        <% repo.commits.last(6).each do |commit| %>
+          <ul class="branch_list">
+            <li>
+              <%=link_to commit.message, commit_path(commit)%>
+              <p><%= repo.name %></p>
+              <p><%= commit.updated_at %></p>
+            </li>
+          </ul>
+        <% end %>
       <% end %>
     <% end %>
-  -->
+
     </ul>
   </div>
 </div>

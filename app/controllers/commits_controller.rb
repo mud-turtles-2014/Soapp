@@ -36,6 +36,7 @@ before_action :get_commit, except: :create_commit
   end
 
   def show
+    @commit = Commit.find(params[:id])
   end
 
   private

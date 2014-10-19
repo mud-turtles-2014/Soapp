@@ -6,29 +6,14 @@
       <h4>LAST COMMITS</h4>
       <hr>
       <ul class="branch_list">
-        <li>
-        	<%= image_tag(@user.avatar_url) %>
-        	<span>started repo view page</span>
-        </li>
-
-        <li>
-        	<%= image_tag(@user.avatar_url) %>
-        	<span>basic collision detection is working</span>
-        </li>
-
-        <li>
-        	<%= image_tag(@user.avatar_url) %>
-        	<span>Merge pull request #18 from mud-turtles-2014/logout_app</span>
-        </li>
-
-        <li>
-        	<%= image_tag(@user.avatar_url) %>
-        	<span>return 500 to hook on missing user or repo</span>
-        </li>
-
-        
+        <% repo.commits.last(6).each do |commit| %>
+          <li>
+            <%= image_tag(@user.avatar_url) %>
+            <span><%= link_to commit.message, repo_path(repo) %></span>
+          </li>
+        <% end %>
       </ul>
-
+      <%= flash[:notice] %>
     </div>
   <% end %>
 <% end %>
