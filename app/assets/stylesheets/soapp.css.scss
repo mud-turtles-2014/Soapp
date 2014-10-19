@@ -3,12 +3,14 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
+  // background-color: #E7F5ED;
 }
 li {
   list-style: none;
 }
-a {
+a, a:visited {
   text-decoration: none;
+  color: #777;
 }
 
 hr {
@@ -121,7 +123,10 @@ header {
   padding: 5%;
   .new-repo {
     font-weight: 600;
+    width: 100%;
+    margin-bottom: 5%;
     a{
+      font-size: 1.4em;
       padding-bottom: 0;
       margin-bottom: 0;
     }
@@ -140,17 +145,54 @@ header {
     width: 100%;
     float: right;
     .card-repo {
-      margin-top: 5%;
-      height: 100%;
+      padding: 20px;
+      
+      height: 60vh;
+      background: #E7F5ED;
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+      float: left;
+      width: 40%;
+      margin: 5px;
+      h4 {
+        color: #555;
+        padding-bottom: 0;
+        margin-top: 5px; 
+        margin-bottom: 0;
+      }
       img {
         margin-right: 5%;
-        width: 50px;
-        height: 50px;
+        width: 80px;
+        height: 80px;
         float: left;
-        border-radius: 25px;
+        border-radius: 40px;
       }
-      h3{
-        line-height: 50px;
+      h2{
+        margin: 0;
+        padding: 0;
+      }
+      p {
+        margin: 0;
+        padding: 0;
+        font-size: 0.8em;
+      }
+      .branch_list {
+        width: 100%;
+        li {
+          float: none;
+          height: 70px;
+
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius : 25px;
+          }
+          span {
+            overflow-x: hidden;
+            overflow-y: hidden;     
+            line-height: 50px;
+          }
+        }
+        
       }
     }
   }
@@ -165,6 +207,8 @@ header {
     }
   }
   .branch_list {
-    display: none;
+    // display: none;
+    margin: 0;
+    padding: 0;
   }
 }
