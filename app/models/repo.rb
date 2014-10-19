@@ -5,6 +5,7 @@ class Repo < ActiveRecord::Base
     has_many :commits, through: :branches
 
     validates :name, presence: true
+    before_save :make_display_name
 
   def find_collisions
     files = []
@@ -16,5 +17,9 @@ class Repo < ActiveRecord::Base
         return []
       end
     collisions
+  end
+
+  def make_display_name
+    self.display_name = self.name.chomp('.git').reverse.split("").take_while{|c| c != '/'}.join("").reverse
   end
 end
