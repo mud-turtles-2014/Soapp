@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery except: :create_commit
 
-  helper_method :current_user
+  helper_method :current_user, :find_collisions
 
   def index
     render "index"
@@ -11,6 +11,14 @@ class ApplicationController < ActionController::Base
 
 
   private
+
+  def find_collisions(repo)
+    files = []
+    repo.commits.each do |commit|
+      files << commit.path_names
+    end
+    files.detect{ |change| files.count(change) > 1}
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

@@ -9,7 +9,10 @@
   Changes:
   <% commit.file_changes.each do |change| %>
     Type: <%= change.action_taken %><br>
-    File name: <%= change.file_path %>
+    File name: <%= change.file_path %><br>
+    <% if @collisions.include?(change.file_path) %>
+      POSSIBLE COLLISION!!!!!<br>
+    <% end %>
 
   <% end %>
   Time of commit: <%= commit.created_at %>
@@ -18,7 +21,7 @@
 Recent team commits:
 
 <% @non_user_branches.each do |branch| %>
-  <%= image_tag(branch.user.avatar_url)%><br>
+
   User name:<%= branch.user.name %><br>
   Branch name:<%= branch.name %><br>
 <%end%>
