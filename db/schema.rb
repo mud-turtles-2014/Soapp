@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20141016155212) do
 
   create_table "repos", force: true do |t|
     t.string   "name"
+    t.string   "display_name"
     t.datetime "last_commit"
     t.datetime "created_at"
     t.datetime "updated_at"

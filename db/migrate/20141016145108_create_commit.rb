@@ -5,6 +5,7 @@ class CreateCommit < ActiveRecord::Migration
       t.string :message
       t.string :sha
 
+
       t.timestamps
     end
   end
