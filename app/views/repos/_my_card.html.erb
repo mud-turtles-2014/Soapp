@@ -7,19 +7,15 @@
     <hr>
     <ul>
 
-    <% if !@soapps_repos.nil? %>
-      <% @user.branches.each do |repo| %>
-        <% repo.commits.last(6).each do |commit| %>
+        <% @user.latest_commits(6).each do |commit| %>
           <ul class="branch_list">
             <li>
               <%=link_to commit.message, commit_path(commit)%>
-              <p><%= repo.name %></p>
+              <p><%= commit.branch.repo.name %></p>
               <p><%= commit.updated_at %></p>
             </li>
           </ul>
         <% end %>
-      <% end %>
-    <% end %>
 
     </ul>
   </div>
