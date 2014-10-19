@@ -1,6 +1,6 @@
   <% @non_user_branches.each do |branch| %>
     <div class="card-repo">
-      <h2>REPO</h2>
+      <h2><%= branch.user.name.upcase %></h2>
       <h4>LAST COMMITS</h4>
       <hr>
       <ul class="branch_list">
