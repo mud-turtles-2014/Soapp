@@ -8,8 +8,8 @@
       <ul class="branch_list">
         <% repo.commits.last(6).each do |commit| %>
           <li>
-            <%= image_tag(@user.avatar_url) %>
-            <span><%= link_to commit.message, repo_path(repo) %></span>
+            <%= image_tag(commit.branch.user.avatar_url) %>
+            <span><%= link_to commit.message, commit_path(commit) %></span>
           </li>
         <% end %>
       </ul>

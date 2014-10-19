@@ -1,15 +1,15 @@
 <div id="commit">
-Commit Message: <%= @commit.message %>
-<br>
-Belongs to user: <%= @commit.branch.user.name %>
-<br>
-On branch <%= @commit.branch.name %>
-<br><br>
-Changes:
-<br><br>
-<% @commit.file_changes.each do |change| %>
-  <%= change.action_taken %>  <%= change.file_path %>
+  Commit Message: <%= @commit.message %>
   <br>
-<% end %>
+  Belongs to user: <%= @commit.branch.user.name %>
+  <br>
+  On branch <%= @commit.branch.name %>
+  <br><br>
+  Changes:
+  <br><br>
+  <% @commit.file_changes.each do |change| %>
+    <%= change.action_taken %>  <%= change.file_path %>
+    <br>
+  <% end %>
 </div>
 
