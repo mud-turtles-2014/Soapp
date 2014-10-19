@@ -5,10 +5,16 @@ before_action :get_commit, except: :create_commit
   def create_commit
     repo = Repo.find_by(name: repo_params[:repo])
     user = User.find_by(email: commit_email_params[:email])
+    # p "*" * 50
+    # p "repo:"
+    # p repo
+    # p "user:"
+    # p user
+    # p
       unless repo && user
-        500
+        return 500
       end
-    
+
     file_changes = FileChange.parse_and_create(diff_params[:diff])
     commit = Commit.create(commit_params)
     commit.file_changes = file_changes
@@ -17,7 +23,7 @@ before_action :get_commit, except: :create_commit
     branch.commits << commit
     branch.update(last_commit: Time.now)
 
-    
+
     repo.update(last_commit: Time.now)
     repo.branches << branch
 
