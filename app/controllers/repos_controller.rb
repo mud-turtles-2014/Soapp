@@ -5,14 +5,10 @@ class ReposController < ApplicationController
     @user = User.find(session[:user_id])
     @soapps_repos = @user.repos.all
 
-    @github_repos = get_github_repos
-    @repo = Repo.new
+    # used for the new button
+      @github_repos = get_github_repos
+      @repo = Repo.new
   end
-
-  # def new
-  #  #  @repos = get_repos
-  # 	# @repo = Repo.new
-  # end
 
   def create
     @user = User.find(session[:user_id])
@@ -27,13 +23,9 @@ class ReposController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
-
-
     branches = Repo.find(params[:id]).branches
     @non_user_branches = branches.where.not(user_id: @user.id)
-
     @user_branches = branches.where(user_id: @user.id)
-
     @collisions = branches.first.repo.find_collisions
   end
 
@@ -50,11 +42,7 @@ private
   def get_github_repos
     @user = User.find(session[:user_id])
     github = Github.new  oauth_token: @user.token
-    repos = []
-    github.repos.list.each do |repo|
-      repos << repo.clone_url
-    end
-    repos
+    github.repos.list.map { |repo| repo.clone_url }
   end
 
 end
