@@ -1,30 +1,36 @@
-<% if @user_branches %>
-  <% @user_branches.each do |u_branch| %>
-  <br>
 
-    <% u_branch.first.commits.each do |commit| %>
-      <%= commit.message %>
-      <br>
-      <%= link_to commit.sha, commit_path(commit.sha) %>
-      <br>
-      Changes:
-      <% commit.file_changes.each do |change| %>
-        Type: <%= change.action_taken %><br>
-        File name: <%= change.file_path %><br>
-        <% if @collisions.include?(change.file_path) %>
-          POSSIBLE COLLISION!!!!!<br>
+<div class="repositories">
+  <div class="content-repo">
+  <% if @user_branches %>
+    <% @user_branches.each do |u_branch| %>
+    <br>
+
+      <% u_branch.first.commits.each do |commit| %>
+        <%= commit.message %>
+        <br>
+        <%= link_to commit.sha, commit_path(commit.sha) %>
+        <br>
+        Changes:
+        <% commit.file_changes.each do |change| %>
+          Type: <%= change.action_taken %><br>
+          File name: <%= change.file_path %><br>
+          <% if @collisions.include?(change.file_path) %>
+            POSSIBLE COLLISION!!!!!<br>
+          <% end %>
+
         <% end %>
-
+        Time of commit: <%= commit.created_at %>
       <% end %>
-      Time of commit: <%= commit.created_at %>
     <% end %>
   <% end %>
-<% end %>
-<br><br><br>
-Recent team commits:
+  <br><br><br>
+  Recent team commits:
 
-<% @non_user_branches.each do |branch| %>
-  User name:<%= branch.user.name %><br>
-  Branch name:<%= branch.name %><br>
-<%end%>
+  <% @non_user_branches.each do |branch| %>
+    User name:<%= branch.user.name %><br>
+    Branch name:<%= branch.name %><br>
+  <%end%>
 
+  <%= render "warning_card" %>
+</div>
+</div>
