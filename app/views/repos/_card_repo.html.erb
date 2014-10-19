@@ -6,7 +6,7 @@
       <h4>LAST COMMITS</h4>
       <hr>
       <ul class="branch_list">
-        <% repo.commits.last(3).each do |commit| %>
+        <% repo.commits.last(6).each do |commit| %>
           <li>
             <%= image_tag(@user.avatar_url) %>
             <span><%= commit.message %></span>
