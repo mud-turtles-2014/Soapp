@@ -1,11 +1,35 @@
-<div class="card-repos">
-  <% if !@soapps_repos.nil? %>
-    <% @soapps_repos.each do |repo| %>
-      <h4><%= link_to repo.name , repo_path(repo.id)  %></h4>
+<% if !@soapps_repos.nil? %>
+  <% @soapps_repos.each do |repo| %>
+		<div class="card-repo">
+			<h2>REPO</h2>
+      <p><%= link_to repo.name , repo_path(repo.id) %></p>
+      <h4>LAST COMMITS</h4>
       <hr>
       <ul class="branch_list">
-        <li>BRANCH MERP</li>
+        <li>
+        	<%= image_tag(@user.avatar_url) %>
+        	<span>started repo view page</span>
+        </li>
+
+        <li>
+        	<%= image_tag(@user.avatar_url) %>
+        	<span>basic collision detection is working</span>
+        </li>
+
+        <li>
+        	<%= image_tag(@user.avatar_url) %>
+        	<span>Merge pull request #18 from mud-turtles-2014/logout_app</span>
+        </li>
+
+        <li>
+        	<%= image_tag(@user.avatar_url) %>
+        	<span>return 500 to hook on missing user or repo</span>
+        </li>
+
+        
       </ul>
-    <% end %>
+
+    </div>
   <% end %>
-</div>
+<% end %>
+
