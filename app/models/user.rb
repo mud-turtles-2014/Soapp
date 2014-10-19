@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :team_projects
   has_many :branches
   has_many :repos, through: :team_projects
+  has_many :commits, through: :branches
 
   validates_presence_of :uid, :name, :email, :token
   validates_uniqueness_of :email, :uid, :token
@@ -22,6 +23,10 @@ class User < ActiveRecord::Base
 
       user.avatar_url = auth["info"]["image"]
     end
+  end
+
+  def latest_commits(limit)
+    latest = self.commits.order(created_at: :desc).limit(limit)
   end
 
 end
