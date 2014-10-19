@@ -9,7 +9,7 @@
         <% repo.commits.last(6).each do |commit| %>
           <li>
             <%= image_tag(@user.avatar_url) %>
-            <span><%= commit.message %></span>
+            <span><%= link_to commit.message, repo_path(repo) %></span>
           </li>
         <% end %>
       </ul>

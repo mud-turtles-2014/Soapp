@@ -8,7 +8,7 @@ before_action :get_commit, except: :create_commit
       unless repo && user
         500
       end
-    
+
     file_changes = FileChange.parse_and_create(diff_params[:diff])
     commit = Commit.create(commit_params)
     commit.file_changes = file_changes
@@ -17,7 +17,7 @@ before_action :get_commit, except: :create_commit
     branch.commits << commit
     branch.update(last_commit: Time.now)
 
-    
+
     repo.update(last_commit: Time.now)
     repo.branches << branch
 
@@ -30,6 +30,7 @@ before_action :get_commit, except: :create_commit
   end
 
   def show
+    @commit = Commit.find(params[:id])
   end
 
   private

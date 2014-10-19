@@ -1,5 +1,6 @@
 class Commit < ActiveRecord::Base
     belongs_to :branch
+    belongs_to :repo
     has_many :file_changes
 
 
