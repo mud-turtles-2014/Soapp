@@ -1,0 +1,16 @@
+  <% @non_user_branches.each do |branch| %>
+    <div class="card-repo">
+      <h2>REPO</h2>
+      <h4>LAST COMMITS</h4>
+      <hr>
+      <ul class="branch_list">
+        <% branch.commits.last(6).each do |commit| %>
+          <li>
+            <%= image_tag(commit.branch.user.avatar_url) %>
+            <span><%= link_to commit.message, commit_path(commit) %></span>
+            Branch name:<%= branch.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
