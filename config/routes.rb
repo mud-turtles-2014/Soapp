@@ -15,6 +15,13 @@ Soapp::Application.routes.draw do
   resources :commits
   post "/create_commit" => 'commits#create_commit'
 
+  resources :instructions, only: [:show] do
+    collection do
+      get "download_rakefile"
+      get "download_hook"
+    end
+  end
+
 
 
   # You can have the root of your site routed with "root"
