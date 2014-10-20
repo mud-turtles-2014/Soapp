@@ -21,7 +21,6 @@ before_action :get_commit, except: :create_commit
     branch = Branch.find_or_create_by(name: branch_params[:name])
     user.branches << branch
     branch.commits << commit
-    user.commits << commit
     branch.update(last_commit: Time.now)
 
 

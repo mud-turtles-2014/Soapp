@@ -12,7 +12,9 @@ class ReposController < ApplicationController
 
   def create
     @user = User.find(session[:user_id])
-    @repo = @user.repos.find_or_create_by(name: repo_params)
+    @repo = Repo.find_or_create_by(name: repo_params)
+    @user.repos << @repo
+
     # render json: @repo
   	if @repo.save
   		redirect_to repos_path
