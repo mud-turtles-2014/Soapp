@@ -1,0 +1,22 @@
+<div class="card-repo">
+  <%= image_tag(@user.avatar_url) %>
+  <h3>WELCOME BACK <%= @user.name.upcase %>!</h3>
+
+  <div class="content-commits">
+    <h4>MY LAST COMMITS</h4>
+    <hr>
+    <ul>
+
+        <% @user.latest_commits(6).each do |commit| %>
+          <ul class="branch_list">
+            <li>
+              <%=link_to commit.message, commit_path(commit)%>
+              <p><%= commit.branch.repo.name %></p>
+              <p><%= commit.updated_at %></p>
+            </li>
+          </ul>
+        <% end %>
+
+    </ul>
+  </div>
+</div>
