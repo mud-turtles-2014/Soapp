@@ -11,8 +11,9 @@
       <ul class="branch_list">
         <% repo.commits.last(6).each do |commit| %>
           <li>
-            <%= image_tag(commit.branch.user.avatar_url) %>
-            <span><%= link_to commit.message, commit_path(commit) %></span>
+            <%= image_tag(commit.branch.user.avatar_url, :class => "git_img") %>
+            <span><%= link_to commit.message, commit_path(commit) %></span><br>
+            <p class="time_hover"><%=form_time(commit.created_at)%></p>
           </li>
         <% end %>
       </ul>

@@ -12,7 +12,7 @@
             <li>
               <%=link_to commit.message, commit_path(commit)%>
               <p><%= commit.branch.repo.name %></p>
-              <p><%= commit.updated_at %></p>
+              <p><%= form_time(commit.updated_at) %></p>
             </li>
           </ul>
         <% end %>
