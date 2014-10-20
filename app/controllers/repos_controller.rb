@@ -29,7 +29,7 @@
 
     # render json: @repo
   	if @repo.save
-  		redirect_to repos_path
+  		redirect_to instruction_path(@user)
   	else
   		redirect_to new_repo_path
   	end
