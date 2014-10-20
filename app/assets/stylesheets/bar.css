@@ -30,4 +30,7 @@
   color: #F84322;
   font-style: bold;
 }
-
+.time_hover{
+  text-align: left;
+  opacity: .5;
+}

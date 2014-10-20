@@ -7,4 +7,9 @@ module ApplicationHelper
     end
     files.detect{ |change| files.count(change) > 1}
   end
+
+  def form_time(time)
+    time.strftime("%a %m/%d/%y %H:%M")
+  end
+
 end
