@@ -1,0 +1,25 @@
+  <div class="card-repo">
+    <h2>HEATMAP</h2>
+    <h4>WHATS HOT IN YOUR SOAPP</h4>
+    <hr>
+    <ul class="branch_list">
+        <% (@repo_commits).each do|hot_file| %>
+          <li>
+            <h3><%=hot_file[0] %></h3> with
+            <strong><%=hot_file[1] %></strong> commits<br>
+              <% if hot_file[1] <= 4%>
+                <% hot_file[1].to_i.times do %>
+                  <div class="bar-box-green"></div>
+                <%end%>
+              <% elsif hot_file[1] >= 4 %>
+                <% hot_file[1].to_i.times do %>
+                  <div class="bar-box-red"></div>
+                <%end%>
+            <%else%>
+                none
+            <%end%>
+          </li>
+          <%end%>
+    </ul>
+    <%= flash[:notice] %>
+  </div>
