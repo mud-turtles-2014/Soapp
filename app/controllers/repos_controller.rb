@@ -9,6 +9,7 @@
       @github_repos = get_github_repos
       @repo = Repo.new
   end
+
   def heat_map(repo_commits)# returns an array with the file name and the times it was counted
       all_paths = []
       repo_commits.each do |com|
@@ -20,6 +21,7 @@
       order = all_paths.inject(Hash.new(0)){|path, freq| path[freq] += 1 ; path}.to_a.sort{|a,b|b[1]<=>a[1] }
       order
   end
+
   def create
     @user = User.find(session[:user_id])
     @repo = @user.repos.find_or_create_by(name: repo_params)

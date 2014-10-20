@@ -13,7 +13,10 @@
           <% (@repo_commits).each do|hot_file| %>
             <li>
               <h3><%=hot_file[0] %></h3> with
-              <strong><%=hot_file[1] %></strong> commits
+              <strong><%=hot_file[1] %></strong> commits<br>
+              <% hot_file[1].to_i.times do %>
+                <div class="bar-box"></div>
+              <%end%>
             </li>
             <%end%>
 
