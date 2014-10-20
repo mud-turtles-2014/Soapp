@@ -1,0 +1,27 @@
+<h1>Using Soapp</h1>
+
+<h2>Download</h2>
+  <p>http://state-of-the-app.herokuapp.com, and place the file within app/lib/task.</p>
+  <p>Push for team members</p>
+  <p>If other people will be using this repository, push the app to heroku so that the rake file is already attached, and their progress can be tracked.</p>
+
+
+<h3>Run the command</h3>
+  <p> rake use:soapp </p>
+
+  <h4>What does it do?</h4>
+
+
+  <p><code> rake use:soapp </code> will create a post-commit file inside <code>  .git/hooks </code> and initiate the command to activate the hook.</p>
+
+
+
+<h5>What happens after</h5>
+
+<p>Now, after every commit is save locally, it will be pushed up to SOAPP for others in the same repository to view what progress you have made prior to pushing to github, avoiding merge conflicts!</p>
+
+
+<h6>Without ruby</h6>
+<p>From the downloaded file, copy and past the code, within terminal navigate inside you selected app to app/.git/hooks, type <code> touch post-commit </code>.</p>
+
+<p>It is a ‘hidden’ file when may not be displayed depending on computer settings. open post-commit, paste the downloaded code, and save. Still in terminal, run <code>x-chmod-boop-soapp </code> which will activate the the web hook</p>
