@@ -7,16 +7,25 @@
           <li>
             <h3><%=hot_file[0] %></h3> with
             <strong><%=hot_file[1] %></strong> commits<br>
+
               <% if hot_file[1] <= 4%>
                 <% hot_file[1].to_i.times do %>
-                  <div class="bar-box-green"></div>
+                  <div class="bar-box-blue"></div>
                 <%end%>
-              <% elsif hot_file[1] >= 4 %>
+
+              <% elsif hot_file[1] <= 5 %>
                 <% hot_file[1].to_i.times do %>
                   <div class="bar-box-red"></div>
                 <%end%>
+
+              <% elsif hot_file[1] >= 6 %>
+                <% hot_file[1].to_i.times do %>
+                  <div class="bar-box-bad-red"></div>
+                <%end%>
+
             <%else%>
-                none
+                Not hot
+
             <%end%>
           </li>
           <%end%>

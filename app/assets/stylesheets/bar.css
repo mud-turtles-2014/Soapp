@@ -1,7 +1,7 @@
-.bar-box-green {
+.bar-box-blue {
   height: 8px;
   width: 8px;
-  background-color: green;
+  background-color: #1C1F1F;
   margin:2px;
   padding: 2px;
   display: inline-block;
@@ -9,15 +9,15 @@
 .bar-box-red {
   height: 8px;
   width: 8px;
-  background-color: red;
+  background-color: #F07D5A;
   margin:2px;
   padding: 2px;
   display: inline-block;
 }
-.bar-box-blue {
+.bar-box-bad-red {
   height: 8px;
   width: 8px;
-  background-color: #00D2D3;
+  background-color: red;
   margin:2px;
   padding: 2px;
   display: inline-block;
