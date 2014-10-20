@@ -2,7 +2,7 @@
   <div class="content-repo">
     <div class="card-repo">
       <h2><%= @commit.branch.name %></h2>
-      <h4>LAST COMMITS</h4>
+      <h4>YOUR LATEST COMMITS</h4>
       <hr>
       <ul class="branch_list">
         <li>Message: <%= @commit.message %></li>
@@ -23,5 +23,31 @@
         </li>
       </ul>
     </div>
+  </div>
+  <div class="content-repo">
+    <div class="card-repo">
+      <h2><%= @lastest_commits.each do |commit| %></h2>
+        <h4>LASTEST COMMITS</h4>
+        <hr>
+        <ul class="branch_list">
+          <li>Message: <%= commit.message %></li>
+
+          <li>User: <%= commit.branch.user.name %></li>
+
+          <li>Branch: <%= commit.branch.name %></li>
+
+          <li>Changes:
+            <% commit.file_changes.each do |change| %>
+              <p><%= change.action_taken %></p>
+              <p><%= change.file_path %></p>
+            <% end %>
+            Full record of commit:<br>
+            <code><pre>
+            <%= commit.full_diff%>
+          </pre></code>
+          </li>
+        </ul>
+      </div>
+    <%end%>
   </div>
 </div>
