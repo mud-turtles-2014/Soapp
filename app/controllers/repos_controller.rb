@@ -4,14 +4,11 @@ class ReposController < ApplicationController
   def index
     @user = User.find(session[:user_id])
     @soapps_repos = @user.repos.all
+    @soapps_repos_commits = @user.repos.includes(:commits)
 
     # used for the new button
     @github_repos = get_github_repos
     @repo = Repo.new
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
-    end
   end
 
   def create
