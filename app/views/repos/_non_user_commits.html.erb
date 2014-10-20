@@ -9,6 +9,7 @@
             <%= image_tag(commit.branch.user.avatar_url) %>
             <span><%= link_to commit.message, commit_path(commit) %></span>
             Branch name:<%= branch.name %>
+            <p class="time_hover"><%= form_time(commit.updated_at) %></p>
           </li>
         <% end %>
       </ul>

@@ -1,6 +1,7 @@
-View = {
-  btn_show_new: true,
-  $btn_new: $('.new-repo a')
+'use strict';
+var View = {
+  btn_show_new : true,
+  $btn_new : $('.new-repo a'),
 };
 
 View.toggle_new_btn = function(){
@@ -16,7 +17,7 @@ View.toggle_new_btn = function(){
 };
 
 View.updateCards = function(data){
-  View.updateMyCardRepo();
+  View.updateMyCardRepo(data);
 };
 
 View.makeCardRepo = function(){
@@ -26,5 +27,18 @@ View.updateCardRepo = function(data){
 };
 
 View.updateMyCardRepo = function(data){
-  $('#my_card ul').empty();
+  var $my_card_ul = $('#my_card ul');
+  $my_card_ul.empty();
+  console.log(data);
+  data.my_card.commits.forEach(function(commit){
+    $my_card_ul.append(View.createLiTag(commit.message, commit.repo_name, commit.updated_at, commit.id));
+  });
 };
+
+View.createLiTag = function(message, repo_name, updated_at, id){
+  return "<li><a href='/commits/" + id + "'> "+ message +" </a><p>" + repo_name + "</p><p>" + updated_at +"</p></li>";
+};
+
+
+
+

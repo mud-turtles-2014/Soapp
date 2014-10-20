@@ -1,4 +1,4 @@
-json.user do
+json.my_card do
   json.commits @user.commits.last(6) do |commit|
      json.message commit.message
      json.id commit.id
@@ -8,7 +8,7 @@ json.user do
 end
 
 
-json.repos @soapps_repos do |repo|
+json.card_repos @soapps_repos do |repo|
    json.name repo.name
    json.id repo.id
 

@@ -5,12 +5,6 @@ before_action :get_commit, except: :create_commit
   def create_commit
     repo = Repo.find_by(name: repo_params[:repo])
     user = User.find_by(email: commit_email_params[:email])
-    # p "*" * 50
-    # p "repo:"
-    # p repo
-    # p "user:"
-    # p user
-    # p
       unless repo && user
         return 500
       end
@@ -31,18 +25,20 @@ before_action :get_commit, except: :create_commit
     render nothing: true
   end
 
+
   def get_commit
     @commit = Commit.find_by(sha: params[:id])
   end
 
   def show
     @commit = Commit.find(params[:id])
+    @lastest_commits = @commit.branch.repo.commits.order('updated_at').reverse
   end
 
   private
 
   def commit_params
-    params.require(:commit).permit(:sha,:message)
+    params.require(:commit).permit(:sha,:message, :full_diff)
   end
 
   def branch_params

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20141016155212) do
     t.integer  "branch_id"
     t.string   "message"
     t.string   "sha"
+    t.text     "full_diff"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
