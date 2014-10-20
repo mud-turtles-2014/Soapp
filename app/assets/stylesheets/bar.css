@@ -1,0 +1,8 @@
+.bar-box {
+  height: 8px;
+  width: 8px;
+  background-color: #00D2D3;
+  margin:2px;
+  padding: 2px;
+  display: inline-block;
+}
