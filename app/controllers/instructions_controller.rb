@@ -8,7 +8,7 @@ class InstructionsController < ApplicationController
 
   end
 
-  def download_hookfile
+  def download_hook
     send_file "#{Rails.root}/public/post-commit"
   end
 
