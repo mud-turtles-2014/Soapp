@@ -1,4 +1,4 @@
-class ReposController < ApplicationController
+ class ReposController < ApplicationController
 
 
   def index
@@ -24,6 +24,7 @@ class ReposController < ApplicationController
   def show
     @user = User.find(session[:user_id])
     branches = Repo.find(params[:id]).branches
+    @repo_commits = Repo.find(params[:id]).commits
     @non_user_branches = branches.where.not(user_id: @user.id)
     @user_branches = branches.where(user_id: @user.id)
     @collisions = branches.first.repo.find_collisions

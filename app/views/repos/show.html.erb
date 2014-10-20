@@ -4,5 +4,23 @@
     <%= render "non_user_commits" %>
 
     <%= render "warning_card" %>
+
+    <div class="card-repo">
+      <h2>HEATMAP</h2>
+      <h4>WHATS HOT IN YOUR SOAPP</h4>
+      <hr>
+      <ul class="branch_list">
+          <% @repo_commits.each do |commit| %>
+            <li>
+              <%= heat_map(commit)%>
+
+        <%end%>
+      </ul>
+      <%= flash[:notice] %>
+    </div>
+
+
+
+
   </div>
 </div>
