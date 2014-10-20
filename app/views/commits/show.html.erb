@@ -1,15 +1,23 @@
-<div id="commit">
-  Commit Message: <%= @commit.message %>
-  <br>
-  Belongs to user: <%= @commit.branch.user.name %>
-  <br>
-  On branch <%= @commit.branch.name %>
-  <br><br>
-  Changes:
-  <br><br>
-  <% @commit.file_changes.each do |change| %>
-    <%= change.action_taken %>  <%= change.file_path %>
-    <br>
-  <% end %>
-</div>
+<div class="repositories">
+  <div class="content-repo">
+    <div class="card-repo">
+      <h2><%= @commit.branch.name %></h2>
+      <h4>LAST COMMITS</h4>
+      <hr>
+      <ul class="branch_list">
+        <li>Message: <%= @commit.message %></li>
 
+        <li>User: <%= @commit.branch.user.name %></li>
+
+        <li>Branch: <%= @commit.branch.name %></li>
+
+        <li>Changes:
+          <% @commit.file_changes.each do |change| %>
+            <p><%= change.action_taken %></p>
+            <p><%= change.file_path %></p>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
