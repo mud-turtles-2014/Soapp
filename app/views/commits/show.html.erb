@@ -16,6 +16,10 @@
             <p><%= change.action_taken %></p>
             <p><%= change.file_path %></p>
           <% end %>
+          Full record of commit:<br>
+          <code><pre>
+          <%= @commit.full_diff%>
+        </pre></code>
         </li>
       </ul>
     </div>
