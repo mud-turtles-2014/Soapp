@@ -9,7 +9,17 @@
       @github_repos = get_github_repos
       @repo = Repo.new
   end
-
+  def heat_map(repo_commits)# returns an array with the file name and the times it was counted
+      all_paths = []
+      repo_commits.each do |com|
+        com.file_changes.each do |change|
+          all_paths << change.file_path
+        end
+        all_paths
+      end
+      order = all_paths.inject(Hash.new(0)){|path, freq| path[freq] += 1 ; path}.to_a.sort{|a,b|b[1]<=>a[1] }
+      order
+  end
   def create
     @user = User.find(session[:user_id])
     @repo = @user.repos.find_or_create_by(name: repo_params)
@@ -24,6 +34,7 @@
   def show
     @user = User.find(session[:user_id])
     repo = Repo.find(params[:id])
+    @repo_commits = heat_map(repo.commits)
     branches = repo.branches
     @non_user_branches = branches.where.not(user_id: @user.id)
     @user_branches = branches.where(user_id: @user.id)

@@ -10,11 +10,13 @@
       <h4>WHATS HOT IN YOUR SOAPP</h4>
       <hr>
       <ul class="branch_list">
-          <% @repo_commits.each do |commit| %>
+          <% (@repo_commits).each do|thing| %>
             <li>
-              <%= heat_map(commit)%>
+              <%= thing %>
+            </li>
+            <%end%>
 
-        <%end%>
+
       </ul>
       <%= flash[:notice] %>
     </div>
