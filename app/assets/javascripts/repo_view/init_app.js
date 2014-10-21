@@ -7,9 +7,8 @@ $(".repos.index").ready(function(){
     View.toggle_new_btn();
   });
 
-  $('.btn-delete').on('ajax:sucess', function(data) {
-    console.log('ajax:success!');
-    console.log(data);
+  $('.btn-delete').on('ajax:success', function(data) {
+    $(this).parent().remove();
   });
 });
 

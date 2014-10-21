@@ -52,13 +52,8 @@
   end
 
   def destroy
-    user = User.find(session[:user_id])
-    TeamProject.find_by(repo_id: params[:id], user_id: user.id ).destroy
-
-    unless TeamProject.find_by(repo_id: params[:id], user_id: user.id )
-      return 200
-    end
-    render :nothing => :true
+    TeamProject.find_by(repo_id: params[:id], user_id: session[:user_id] ).destroy
+    render json: :ok
   end
 
 
