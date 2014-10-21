@@ -27,7 +27,6 @@ View.updateCards = function(data){
 View.updateCardRepo = function(data){
 
   data.card_repos.forEach(function(card){
-    // debugger;
     var $card_ul = $('#'+ card.id + ' ul');
     $card_ul.empty();
 
@@ -53,11 +52,6 @@ View.updateMyCardRepo = function(data){
 View.createMyCardLiTag = function(message, repo_name, updated_at, id){
   return "<li><a href='/commits/" + id + "'> "+ message +" </a><p>" + repo_name + "</p><p>" + updated_at +"</p></li>";
 };
-
-View.deleteCard = function(card_id) {
-
-};
-
 
 
 
