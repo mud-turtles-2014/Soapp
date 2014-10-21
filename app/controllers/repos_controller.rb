@@ -2,7 +2,7 @@
 
 
   def index
-    @user = User.find(session[:user_id])
+    @user = current_user
     @soapps_repos = @user.repos.all
     @soapps_repos_commits = @user.repos.includes(:commits)
 
@@ -29,7 +29,8 @@
   end
 
   def create
-    @user = User.find(session[:user_id])
+    @user = current_user
+    User.find(session[:user_id])
     @repo = Repo.find_or_create_by(name: repo_params)
     @user.repos << @repo
 
@@ -42,7 +43,7 @@
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @user = current_user
     repo = Repo.find(params[:id])
     @repo_commits = heat_map(repo.commits)
     branches = repo.branches
@@ -50,7 +51,7 @@
     @user_branches = branches.where(user_id: @user.id)
 
     if repo.branches.length > 0
-      @collisions = branches.first.repo.find_collisions
+      @collisions = repo.find_collisions
     else
       @collisions = []
     end
@@ -72,7 +73,7 @@ private
   end
 
   def get_github_repos
-    @user = User.find(session[:user_id])
+    @user = current_user
     github = Github.new  oauth_token: @user.token
     github.repos.list.map { |repo| repo.clone_url }
   end
