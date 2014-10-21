@@ -4,10 +4,11 @@
   def index
     @user = User.find(session[:user_id])
     @soapps_repos = @user.repos.all
+    @soapps_repos_commits = @user.repos.includes(:commits)
 
     # used for the new button
-      @github_repos = get_github_repos
-      @repo = Repo.new
+    @github_repos = get_github_repos
+    @repo = Repo.new
   end
 
   def heat_map(repo_commits)# returns an array with the file name and the times it was counted
@@ -48,6 +49,16 @@
     else
       @collisions = []
     end
+  end
+
+  def destroy
+    user = User.find(session[:user_id])
+    TeamProject.find_by(repo_id: params[:id], user_id: user.id ).destroy
+
+    unless TeamProject.find_by(repo_id: params[:id], user_id: user.id )
+      return 200
+    end
+    render :nothing => :true
   end
 
 

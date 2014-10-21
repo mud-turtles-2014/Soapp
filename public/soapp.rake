@@ -20,7 +20,7 @@ namespace :use do
 							repo = `git config --get remote.origin.url`
 							repo = repo.chop
 							branch = branch.chop!
-							uri = URI('http://state-of-the-app.herokuapp.com/create_commit')
+							uri = URI('http://state-of-the-app.herokuspp/create_commit')
 							http = Net::HTTP.new(uri.host, uri.port)
 							req = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
 							req.body = {commit:{sha: sha, email: email, repo: repo, diff: diff, message: message, full_diff: full_diff

@@ -1,9 +1,9 @@
 <% if !@soapps_repos.nil? %>
   <% @soapps_repos.each do |repo| %>
-		<div class="card-repo">
-			<h2>REPO</h2>
+		<div id="<%= repo.id %>" class="card-repo">
+			<h2><%= repo.display_name %></h2>
       <p>
-        <span><a href=<%=repo.name%>><%= image_tag("github-icon.png")%></a></span>
+        <span><a href=<%=repo.name%>><%= image_tag(("github-icon.png"), :class => "git_logo")%></a></span>
         <%= link_to repo.name , repo_path(repo.id) %>
       </p>
       <h4>LAST COMMITS</h4>
@@ -17,7 +17,7 @@
           </li>
         <% end %>
       </ul>
-      <%= flash[:notice] %>
+      <%= link_to "More info" , repo_path(repo), :class=>"more-info" %>
     </div>
   <% end %>
 <% end %>
