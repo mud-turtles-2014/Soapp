@@ -1,7 +1,8 @@
-<div class="commits">
+<h1 id="display_name"><%=@repo.display_name%></h1>
+<div class="commits" class="all-commit-container">
   <div class="repositories">
     <div class="content-repo">
-      <div class="card-repo">
+      <div class="card-repo" id="commit-content-display">
         <h2><%= @commit.branch.name %></h2>
         <h4>YOUR LATEST COMMITS</h4>
         <hr>
@@ -26,8 +27,8 @@
       </div>
     </div>
     <div class="content-repo">
-      <div class="card-repo">
-        <h2><%= @lastest_commits.each do |commit| %></h2>
+      <div class="card-repo"  id="commit-content-display">
+        <h2><% @lastest_commits.each do |commit| %></h2>
           <h4>LASTEST COMMITS</h4>
           <hr>
           <ul class="branch_list">
