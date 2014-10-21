@@ -4,10 +4,11 @@
   def index
     @user = User.find(session[:user_id])
     @soapps_repos = @user.repos.all
+    @soapps_repos_commits = @user.repos.includes(:commits)
 
     # used for the new button
-      @github_repos = get_github_repos
-      @repo = Repo.new
+    @github_repos = get_github_repos
+    @repo = Repo.new
   end
 
   def heat_map(repo_commits)# returns an array with the file name and the times it was counted

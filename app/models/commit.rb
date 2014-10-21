@@ -2,6 +2,8 @@ class Commit < ActiveRecord::Base
     belongs_to :branch
     belongs_to :repo
     has_many :file_changes
+    delegate :name, to: :branch, allow_nil: true, prefix: true
+
 
 
     validates :message, presence: true

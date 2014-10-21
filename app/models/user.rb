@@ -25,8 +25,20 @@ class User < ActiveRecord::Base
     end
   end
 
-  def latest_commits(limit)
-    latest = self.commits.order(created_at: :desc).limit(limit)
+  def latest_commits(limit = 6)
+    latest = self.commits.includes(:branch).order(created_at: :desc).limit(limit)
   end
+
+  def json_info
+    my_user = {}
+    my_user[:main_info] = self
+    my_user[:latest_commits] = self.latest_commits
+    my_user
+  end
+
+        #   commits = @user.latest_commits
+      #   commits.each do |commit|
+      #     @repos << commit.branch.repo.name
+      #   end
 
 end
