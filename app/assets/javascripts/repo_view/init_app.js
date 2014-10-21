@@ -6,9 +6,12 @@ $(".repos.index").ready(function(){
     e.preventDefault();
     View.toggle_new_btn();
   });
+
+  $('.btn-delete').on('ajax:success', function(data) {
+    $(this).parent().remove();
+  });
 });
 
 $(".commits").ready(function(){
-
 
 });
