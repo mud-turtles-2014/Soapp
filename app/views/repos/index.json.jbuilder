@@ -17,5 +17,6 @@ json.card_repos @soapps_repos do |repo|
     json.id commit.id
     json.image commit.branch.user.avatar_url
     json.message commit.message
+    json.updated_at commit.updated_at
   end
 end

@@ -1,10 +1,10 @@
 <% if !@soapps_repos.nil? %>
   <% @soapps_repos.each do |repo| %>
 		<div id="<%= repo.id %>" class="card-repo">
-			<h2>REPO</h2>
+			<h2><%= repo.display_name %></h2>
       <p>
         <span><a href=<%=repo.name%>><%= image_tag("github-icon.png")%></a></span>
-        <%= link_to repo.name , repo_path(repo.id) %>
+        <%= link_to repo.name , repo.name %>
       </p>
       <h4>LAST COMMITS</h4>
       <hr>
@@ -17,6 +17,7 @@
           </li>
         <% end %>
       </ul>
+      <%= link_to "More info" , repo_path(repo), :class=>"more-info" %>
     </div>
   <% end %>
 <% end %>

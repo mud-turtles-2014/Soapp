@@ -31,18 +31,15 @@ View.updateCardRepo = function(data){
     var $card_ul = $('#'+ card.id + ' ul');
     $card_ul.empty();
 
-    data.card_repos.commits.forEach(function(commit){
+    card.commits.forEach(function(commit){
+      debugger;
       $card_ul.prepend(View.createReoiCardLiTag(commit.image, commit.message, commit.id, commit.updated_at));
     });
   });
 };
 
 View.createReoiCardLiTag = function(image, message, id, updated_at){
-  return "<li>
-            <img class='git_img' src="+image+">
-            <span><a href='/commits/"+id+"'>"+message+"</a></span><br>
-            <p class='time_hover'>"+updated_at+"</p>
-          </li>";
+  return "<li><img class='git_img' src="+image+"><span><a href='/commits/"+id+"'>"+message+"</a></span><br><p class='time_hover'>"+updated_at+"</p></li>";
 };
 
 View.updateMyCardRepo = function(data){
