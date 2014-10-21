@@ -55,6 +55,10 @@ View.createMyCardLiTag = function(message, repo_name, updated_at, id){
   return "<li><a href='/commits/" + id + "'> "+ message +" </a><p>" + repo_name + "</p><p>" + updated_at +"</p></li>";
 };
 
+View.deleteCard = function(card_id) {
+
+};
+
 
 
 

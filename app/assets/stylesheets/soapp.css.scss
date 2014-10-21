@@ -179,6 +179,7 @@ header {
     width: 100%;
     float: right;
     .card-repo {
+      position: relative;
       padding: 20px;
 
 
@@ -190,6 +191,18 @@ header {
       min-width: 350px;
       height: 600px;
       margin: 5px 10px 5px 0;
+
+      .btn-delete, .btn-delete:visited {
+        font-weight: 600;
+        position: absolute;
+        right: 0;
+        top: -10px;
+        padding: 30px;
+        color: #1C1F1F;
+      }
+      .btn-delete:hover {
+        color: #00D2D3;
+      }
       h4 {
         color: #555;
         padding-bottom: 0;
@@ -238,7 +251,19 @@ header {
             line-height: 50px;
           }
         }
-
+      }
+      .more-info, .more-info:visited {
+        font-weight: 600;
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+        padding: 10px;
+        color: #1C1F1F;
+        // border: 2px solid;
+        margin: 10px;
+      }
+      .more-info:hover {
+        color: #00D2D3;
       }
     }
   }
