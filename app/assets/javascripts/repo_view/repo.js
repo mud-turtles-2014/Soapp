@@ -15,3 +15,13 @@ Repo.getNewCommits = function(){
     setTimeout(function() { Repo.getNewCommits(); }, 3000);
   });
 };
+
+Repo.deleteCard = function(id){
+  $.ajax({
+    type: "POST",
+    url: '/repos',
+    dataType: 'json'
+  }).done(function(data){
+    View.deleteCard(id);
+  });
+};

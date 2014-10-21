@@ -1,6 +1,8 @@
 <% if !@soapps_repos.nil? %>
   <% @soapps_repos.each do |repo| %>
 		<div id="<%= repo.id %>" class="card-repo">
+      <%= link_to "X", repo, remote: true, method: :delete, class: "btn-delete" %>
+
 			<h2><%= repo.display_name %></h2>
       <p>
         <span><a href=<%=repo.name%>><%= image_tag(("github-icon.png"), :class => "git_logo")%></a></span>
@@ -17,7 +19,7 @@
           </li>
         <% end %>
       </ul>
-      <%= link_to "More info" , repo_path(repo), :class=>"more-info" %>
+      <%= link_to "+ INFO" , repo_path(repo), :class=>"more-info" %>
     </div>
   <% end %>
 <% end %>
