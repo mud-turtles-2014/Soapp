@@ -14,8 +14,3 @@ class FileChange < ActiveRecord::Base
   end
 end
 
-# string.each_line do |line|
-# line ~= (?<=D\)(.?)(?=\n) || (?<=A\)(.?)(?=\n) || (?<=M\)(.*?)(?=\n)
-# File_change.create(type: D, line: line)
-# end
-
