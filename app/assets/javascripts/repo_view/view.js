@@ -29,9 +29,9 @@ View.updateCardRepo = function(data){
 View.updateMyCardRepo = function(data){
   var $my_card_ul = $('#my_card ul');
   $my_card_ul.empty();
-  console.log(data);
+
   data.my_card.commits.forEach(function(commit){
-    $my_card_ul.append(View.createLiTag(commit.message, commit.repo_name, commit.updated_at, commit.id));
+    $my_card_ul.prepend(View.createLiTag(commit.message, commit.repo_name, commit.updated_at, commit.id));
   });
 };
 

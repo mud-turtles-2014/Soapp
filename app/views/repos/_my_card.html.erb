@@ -5,18 +5,14 @@
   <div class="content-commits">
     <h4>MY LAST COMMITS</h4>
     <hr>
-    <ul>
-
-        <% @user.latest_commits(6).each do |commit| %>
-          <ul class="branch_list">
-            <li>
-              <%=link_to commit.message, commit_path(commit)%>
-              <p><%= commit.branch.repo.name %></p>
-              <p class="time_hover"><%= form_time(commit.updated_at) %></p>
-            </li>
-          </ul>
-        <% end %>
-
+    <ul class="branch_list">
+      <% @user.latest_commits(6).each do |commit| %>
+          <li>
+            <%=link_to commit.message, commit_path(commit)%>
+            <p><%= commit.branch.repo.name %></p>
+            <p><%= form_time(commit.updated_at) %></p>
+          </li>
+      <% end %>
     </ul>
   </div>
 </div>
