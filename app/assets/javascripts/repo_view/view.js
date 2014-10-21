@@ -32,7 +32,6 @@ View.updateCardRepo = function(data){
     $card_ul.empty();
 
     card.commits.forEach(function(commit){
-      debugger;
       $card_ul.prepend(View.createReoiCardLiTag(commit.image, commit.message, commit.id, commit.updated_at));
     });
   });
