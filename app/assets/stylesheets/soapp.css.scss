@@ -35,7 +35,7 @@ input[type=submit] {
   cursor:pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  font-size: 1.4em;
+  font-size: .8em;
   color: #fff;
 }
 
@@ -264,4 +264,7 @@ header {
 }
 .git_logo:hover{
   background-color:#E1FEFF;
+}
+.repo-list-options{
+  font-size: .9em;
 }
