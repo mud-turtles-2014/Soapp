@@ -192,6 +192,10 @@ header {
       height: 600px;
       margin: 5px 10px 5px 0;
 
+      a:hover {
+        color: #00D2D3;
+      }
+
       .btn-delete, .btn-delete:visited {
         font-weight: 600;
         position: absolute;
@@ -236,6 +240,9 @@ header {
           height: 70px;
           a {
             color: #333;
+          }
+          span a:hover {
+            color: #00D2D3;
           }
           p {
             color: #888;

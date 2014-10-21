@@ -14,5 +14,4 @@ $(".repos.index").ready(function(){
 
 $(".commits").ready(function(){
 
-
 });
