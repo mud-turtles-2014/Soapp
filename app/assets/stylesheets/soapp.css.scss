@@ -220,7 +220,7 @@ header {
       float: left;
       // width: 40%;
 
-      min-width: 350px;
+      width: 350px;
       height: 600px;
       margin: 5px 10px 5px 0;
 
@@ -257,6 +257,7 @@ header {
         padding: 0;
       }
       p {
+        overflow-x: hidden;
         margin: 0;
         padding: 0;
         font-size: 0.8em;
@@ -307,20 +308,12 @@ header {
       }
     }
   }
-  .content-commits{
-    h4 {
-      color: #35C97A;
-      margin-bottom: 0;
-    }
-    ul{
-      margin: 0;
-      padding: 0;
-    }
-  }
+
   .branch_list {
     // display: none;
     margin: 0;
     padding: 0;
+
   }
 }
 

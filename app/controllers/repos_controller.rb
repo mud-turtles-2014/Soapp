@@ -34,11 +34,12 @@
     @user.repos << @repo
 
     # render json: @repo
-  	if @repo.save
-  		redirect_to instruction_path(@user)
-  	else
-  		redirect_to new_repo_path
-  	end
+  	# if @repo.save
+  	# 	redirect_to #instructions_path
+  	# else
+  	# 	redirect_to new_repo_path
+  	# end
+    redirect_to repos_path
   end
 
   def show
