@@ -18,12 +18,31 @@ View.toggle_new_btn = function(){
 
 View.updateCards = function(data){
   View.updateMyCardRepo(data);
+  View.updateCardRepo(data);
 };
 
-View.makeCardRepo = function(){
-};
+// View.makeCardRepo = function(){
+// };
 
 View.updateCardRepo = function(data){
+
+  data.card_repos.forEach(function(card){
+    // debugger;
+    var $card_ul = $('#'+ card.id + ' ul');
+    $card_ul.empty();
+
+    data.card_repos.commits.forEach(function(commit){
+      $card_ul.prepend(View.createReoiCardLiTag(commit.image, commit.message, commit.id, commit.updated_at));
+    });
+  });
+};
+
+View.createReoiCardLiTag = function(image, message, id, updated_at){
+  return "<li>
+            <img class='git_img' src="+image+">
+            <span><a href='/commits/"+id+"'>"+message+"</a></span><br>
+            <p class='time_hover'>"+updated_at+"</p>
+          </li>";
 };
 
 View.updateMyCardRepo = function(data){
@@ -31,11 +50,11 @@ View.updateMyCardRepo = function(data){
   $my_card_ul.empty();
 
   data.my_card.commits.forEach(function(commit){
-    $my_card_ul.prepend(View.createLiTag(commit.message, commit.repo_name, commit.updated_at, commit.id));
+    $my_card_ul.prepend(View.createMyCardLiTag(commit.message, commit.repo_name, commit.updated_at, commit.id));
   });
 };
 
-View.createLiTag = function(message, repo_name, updated_at, id){
+View.createMyCardLiTag = function(message, repo_name, updated_at, id){
   return "<li><a href='/commits/" + id + "'> "+ message +" </a><p>" + repo_name + "</p><p>" + updated_at +"</p></li>";
 };
 

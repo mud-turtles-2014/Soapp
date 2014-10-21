@@ -1,6 +1,6 @@
 <% if !@soapps_repos.nil? %>
   <% @soapps_repos.each do |repo| %>
-		<div class="card-repo">
+		<div id="<%= repo.id %>" class="card-repo">
 			<h2>REPO</h2>
       <p>
         <span><a href=<%=repo.name%>><%= image_tag("github-icon.png")%></a></span>
