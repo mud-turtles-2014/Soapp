@@ -24,21 +24,29 @@
 }
 
 #heat-map-card {
-  background-color:white;
+  background-color: #F8C7AD;
 }
 #heat-map-card h2 {
-  color: #F84322;
+  color: #C33A1A;
   font-style: bold;
-  background-color: #FFEEC4;
-
 }
 #heat-map-card:hover{
-  color: #F84322;
   font-style: bold;
-  background-color: #FFEEC4;
 }
 .time_hover{
   text-align: left;
   opacity: .5;
-  /*display:inline-block;*/
+}
+#warning-card {
+  background-color: #FFECB6;
+  font-style: bold;
+}
+#warning-card h2 {
+  color: #E0854B;
+  font-style: bold;
+}
+#warning-card:hover{
+
+  font-style: bold;
+  background-color: #FFECB6;
 }
