@@ -1,0 +1,29 @@
+<div class="instructions">
+  <h1>Using Soapp</h1>
+
+  <h2>Using Soapp with a Rails application</h2>
+
+    <p>Download the rakefile:</p>
+    <%= link_to "Download Rakefile", action: "download_rakefile"%>
+    <p>and place the file within the app/lib/task folder of the Rails project you want to track.</p>
+
+
+
+  <h3>Run the rake task</h3>
+    <code> rake use:soapp </code>
+
+    <h4>What does it do?</h4>
+
+    <p>The rake task will create a post-commit file inside the<code> .git/hooks </code> folder of your repository, and set that file to be executable.</p>
+
+  <p>Now, after every local commit the git hook will send information about the commit to SOAPP. Using the SOAPP dashboard you can see every local commit and prevent possible problems before they happen.</p>
+
+  <h3>Push for team members</h3>
+    <p>Once you push the repository to github other users of your repository can run the rake task and their progress will be tracked.</p>
+
+  <h2>Without ruby</h2>
+  <p>Download the git hook file:</p>
+    <%= link_to "Download Hook File", action: "download_hook"%>
+  <p>Copy the file to the .git/hooks directory within your repo. Now, while in the hooks directory type: <code> chmod +x post-commit </code>. This will set the hook to executable.</p>
+
+</div>

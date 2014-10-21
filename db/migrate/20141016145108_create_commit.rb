@@ -4,7 +4,7 @@ class CreateCommit < ActiveRecord::Migration
       t.belongs_to :branch
       t.string :message
       t.string :sha
-
+      t.text :full_diff
 
       t.timestamps
     end

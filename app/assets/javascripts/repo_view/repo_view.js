@@ -30,32 +30,3 @@ View.toggle_new_btn = function(){
     }
   });
 }
-
-// View.makeCardRepo = function(){
-
-// }
-
-// Repo = {
-
-// }
-
-// // Repo.getNewCommits = function(){
-// //   $.ajax({
-// //     url: JSON_URL, // JSON_URL is a global variable
-// //     dataType: 'json',
-// //     error: function(xhr_data) {
-// //       // terminate the script
-// //     },
-// //     success: function(xhr_data) {
-// //       console.log(xhr_data);
-// //       if (xhr_data.status == 'pending') {
-// //         setTimeout(function() { ajax_request(); }, 15000); // wait 15 seconds than call ajax request again
-// //       } else {
-// //         success(xhr_data);
-// //       }
-// //     },
-// //     contentType: 'application/json'
-// //   });
-// // }
-
-
