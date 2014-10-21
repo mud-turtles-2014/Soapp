@@ -51,7 +51,7 @@
     @user_branches = branches.where(user_id: @user.id)
 
     if repo.branches.length > 0
-      @collisions = branches.first.repo.find_collisions
+      @collisions = repo.find_collisions
     else
       @collisions = []
     end
