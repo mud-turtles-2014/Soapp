@@ -4,7 +4,7 @@ class InstructionsController < ApplicationController
     send_file "#{Rails.root}/public/Soapp.rake"
   end
 
-  def show
+  def index
 
   end
 
