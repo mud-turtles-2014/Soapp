@@ -334,17 +334,33 @@ header {
 }
 
 
-
-@media only screen and (max-width : 410px) {
+@media only screen and (max-width : 400px) {
+  .repositories{
+    margin: 0;
+  }
+}
+@media only screen and (max-width : 510px) {
   header{
     font-size: 1em;
     li{
       padding-left: 0;
     }
   }
-
+  .download_button {
+    display: none;
+  }
   .repositories{
-    width: 400px;
+    padding: 1%;
+  }
+}
+
+@media only screen and (min-width : 400px) {
+  .repositories{
+    max-width: 350px;
+  }
+  .download_button {
+    float: right;
+    text-align: right;
   }
 }
 
