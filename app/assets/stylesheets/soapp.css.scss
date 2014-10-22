@@ -45,7 +45,7 @@ input[type=submit]:hover{
 
 header {
   width: 100%;
-  min-width: 350px;
+  min-width: 320px;
   height: 40px;
   background-color: #00D2D3;
   display: block;
@@ -349,10 +349,14 @@ header {
 @media only screen and (max-width : 400px) {
   .repositories{
     margin: 0;
-    .content-repo .card-repo {
-      width: 100%;
-      padding: 0;
-      margin: 0;
+    padding: 0;
+    width: 100%;
+    .content-repo {
+      .card-repo {
+        width: auto;
+        margin-right: 0;
+        float: none;
+      }
     }
   }
 
@@ -374,7 +378,8 @@ header {
     display: none;
   }
   .repositories{
-    padding: 1%;
+    // padding: 0;
+    // margin: 0;
   }
 }
 
