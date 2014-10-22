@@ -7,7 +7,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    # session[:user_id] = nil
+    session.clear
+    session.current_user = nil
     redirect_to root_url, :notice => ""
   end
 
