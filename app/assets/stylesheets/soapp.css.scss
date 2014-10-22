@@ -45,7 +45,7 @@ input[type=submit]:hover{
 
 header {
   width: 100%;
-  min-width: 400px;
+  min-width: 350px;
   height: 40px;
   background-color: #00D2D3;
   display: block;
@@ -354,7 +354,7 @@ header {
 }
 @media only screen and (max-width : 510px) {
   header{
-    font-size: 1em;
+    font-size: 0.8em;
     li{
       padding-left: 0;
     }
