@@ -28,11 +28,15 @@
         </ul>
       </div>
     </div>
+  </div>
+</div>
+<% @lastest_commits.each do |commit| %>
+<div class="commits" class="all-commit-container">
+  <div class="repositories">
     <div class="content-repo">
-
       <div class="card-repo"  id="commit-content-display">
 
-        <h2><% @lastest_commits.each do |commit| %></h2>
+
           <h4>LASTEST COMMITS</h4>
           <hr>
           <ul class="branch_list">
@@ -54,7 +58,8 @@
             </li>
           </ul>
         </div>
-      <%end%>
+      </div>
     </div>
   </div>
-</div>
+<%end%>
+
