@@ -12,4 +12,10 @@ module ApplicationHelper
     time.strftime("%a %m/%d/%y %H:%M")
   end
 
+  def mad(change)
+    return "<p class='modified'>Modified ".html_safe if change == "M"
+    return "<p class='added'> Added ".html_safe if change == "A"
+    return "<p class='deleted'>Deleted ".html_safe if change == "D"
+  end
+
 end
