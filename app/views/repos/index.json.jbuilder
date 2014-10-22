@@ -3,7 +3,7 @@ json.my_card do
     json.message commit.message
     json.id commit.id
     json.repo_name commit.branch.repo.name
-    json.updated_at commit.updated_at
+    json.updated_at form_time(commit.updated_at)
   end
 end
 
