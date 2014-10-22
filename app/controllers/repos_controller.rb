@@ -1,5 +1,12 @@
  class ReposController < ApplicationController
 
+  before_action :require_login
+
+  def require_login
+    unless session[:user_id]
+      redirect_to '/auth/github/'
+    end
+  end
 
   def index
     @user = current_user
