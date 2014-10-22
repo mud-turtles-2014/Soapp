@@ -45,6 +45,7 @@ input[type=submit]:hover{
 
 header {
   width: 100%;
+  min-width: 400px;
   height: 40px;
   background-color: #00D2D3;
   display: block;
@@ -332,6 +333,36 @@ header {
   font-size: .9em;
 }
 
+
+@media only screen and (max-width : 400px) {
+  .repositories{
+    margin: 0;
+  }
+}
+@media only screen and (max-width : 510px) {
+  header{
+    font-size: 1em;
+    li{
+      padding-left: 0;
+    }
+  }
+  .download_button {
+    display: none;
+  }
+  .repositories{
+    padding: 1%;
+  }
+}
+
+@media only screen and (min-width : 400px) {
+  .repositories{
+    max-width: 350px;
+  }
+  .download_button {
+    float: right;
+    text-align: right;
+  }
+}
 
 @media only screen and (min-width : 800px) {
   .repositories{
