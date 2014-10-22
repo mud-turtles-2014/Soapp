@@ -37,7 +37,6 @@
 
   def create
     @user = current_user
-    User.find(session[:user_id])
     @repo = Repo.find_or_create_by(name: repo_params)
     @user.repos << @repo
 
