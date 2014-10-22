@@ -13,14 +13,11 @@ State of the App, or SOAPP, is a way for software developers to see what others 
 * [Chris Wallwork](https://github.com/cwallwork)
 * [Rafael Rocha](https://github.com/rafaelrochasilva)
 
-This is a project produced at [DevBootcamp](http://devbootcamp.com) in NYC. SOAPP is our final project, created to explore git workflow and create a fluid work flow for satellite teams.
 
-## Install Instructions
-
-Using Soapp
-
-Using Soapp with a Rails application
-
+SOAPP
+==============
+============
+=======
 Download the rake task file and place the file within the app/lib/task folder of the Rails project you want to track.
 
 Run the rake task:
