@@ -33,10 +33,7 @@
 #heat-map-card:hover{
   font-style: bold;
 }
-.time_hover{
-  text-align: left;
-  opacity: .5;
-}
+
 #warning-card {
   background-color: #FFECB6;
   font-style: bold;
@@ -56,3 +53,4 @@ nav li {
 header nav li a:visited {
   color: white;
 }
+
