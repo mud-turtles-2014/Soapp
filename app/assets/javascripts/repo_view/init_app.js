@@ -1,6 +1,9 @@
 $(".repos.index").ready(function(){
 
-  Repo.getNewCommits();
+
+  setInterval(function() {
+  Repo.getNewCommits() },
+  3000);
 
   $('.add_button').click(function(e){
     e.preventDefault();
@@ -11,7 +14,7 @@ $(".repos.index").ready(function(){
     $(this).parent().remove();
   });
 });
-
 $(".commits").ready(function(){
 
 });
+
