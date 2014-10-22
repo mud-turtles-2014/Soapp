@@ -34,3 +34,7 @@
   line-height: 150%;
   margin-top: -9px;
  }
+
+ .repositories .content-repo .card-repo .branch_list li code p  {
+  font-size: 16px;
+ }
