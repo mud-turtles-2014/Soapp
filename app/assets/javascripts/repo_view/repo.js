@@ -12,7 +12,6 @@ Repo.getNewCommits = function(){
       View.updateCards(data);
       Repo.lastRequest = data;
     }
-    setTimeout(function() { Repo.getNewCommits(); }, 3000);
   });
 };
 
