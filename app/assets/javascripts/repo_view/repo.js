@@ -3,7 +3,6 @@ var Repo = {
 }
 
 Repo.getNewCommits = function(){
-  console.log('hello world')
   $.ajax({
     type: "GET",
     url: '/repos',
