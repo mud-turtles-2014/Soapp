@@ -5,11 +5,11 @@
 
 			<h2><%= repo.display_name %></h2>
       <p>
-        <span><a href=<%=repo.name%>><%= image_tag(("github-icon.png"), :class => "git_logo")%></a></span>
+        <span><a href=<%=repo.name%><%= image_tag(("github-icon.png"), :class => "git_logo")%></a></span>
         <%= link_to repo.name , repo_path(repo.id) %>
       </p>
-      <h4>LAST COMMITS</h4>
-      <hr>
+      <h4>LASTEST COMMITS</h4>
+      <hr><br>
       <ul class="branch_list">
         <% repo.commits.last(6).each do |commit| %>
           <li>
