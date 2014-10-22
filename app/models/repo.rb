@@ -24,7 +24,7 @@ class Repo < ActiveRecord::Base
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @user = current_user
     repo = Repo.find(params[:id])
     @repo_commits = heat_map(repo.commits)
     branches = repo.branches
