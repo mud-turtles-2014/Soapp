@@ -19,7 +19,6 @@
 
     respond_to do |format|
       format.html{render 'index.html.erb'}
-      # format.json{render 'index.json.jbuilder'}
     end
   end
 
