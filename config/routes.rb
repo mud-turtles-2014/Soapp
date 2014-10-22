@@ -15,7 +15,7 @@ Soapp::Application.routes.draw do
   resources :commits
   post "/create_commit" => 'commits#create_commit'
 
-  resources :instructions, only: [:show] do
+  resources :instructions, only: [:index] do
     collection do
       get "download_rakefile"
       get "download_hook"
