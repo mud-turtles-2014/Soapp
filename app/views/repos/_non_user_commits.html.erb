@@ -1,7 +1,7 @@
   <% @non_user_branches.each do |branch| %>
     <div class="card-repo">
       <h2><%= branch.user.name.upcase %></h2>
-      <h4>LASTEST COMMITS</h4>
+      <h4>LATEST COMMITS</h4>
       <hr>
       <ul class="branch_list">
         <% branch.commits.last(6).each do |commit| %>
