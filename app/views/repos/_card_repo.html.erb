@@ -4,8 +4,10 @@
       <%= link_to "X", repo, remote: true, method: :delete, class: "btn-delete" %>
 
 			<h2><%= repo.display_name %></h2>
-      <p>
-        <span><a href=<%=repo.name%><%= image_tag(("github-icon.png"), :class => "git_logo")%></a></span>
+      <p class="github">
+        <a href='<%=repo.name%>'>
+          <%= image_tag(("github-icon.png"), :class => "git_logo")%>
+        </a>
         <%= link_to repo.name , repo_path(repo.id) %>
       </p>
       <h4>LASTEST COMMITS</h4>
