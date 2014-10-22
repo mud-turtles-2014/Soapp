@@ -1,35 +1,5 @@
 <h1 id="display_name"><%=@repo.display_name%></h1>
-<div class="commits" class="all-commit-container">
-  <div class="repositories">
-    <div class="content-repo">
-      <!-- <h4 id="mad_key">A = added   M = modified  D = deleted</h4> -->
-      <div class="card-repo" id="commit-content-display">
-        <h2><%= @commit.branch.name %></h2>
-        <h4>YOUR LATEST COMMITS</h4>
-        <hr>
-        <ul class="branch_list">
-          <li>Message:<%= @commit.message %></li>
 
-          <li>User: <br>-<%= @commit.branch.user.name %></li>
-
-          <li>Branch: <br>-<%= @commit.branch.name %></li>
-
-          <li>Changes:
-            <% @commit.file_changes.each do |change| %>
-
-              <p><%= mad(change.action_taken) %></p>
-              <p>-<%= change.file_path %></p><br>
-            <% end %>
-            Full record of commit:<br>
-            <code><pre>
-            <%= @commit.full_diff%>
-          </pre></code>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 <% @lastest_commits.each do |commit| %>
 <div class="commits" class="all-commit-container">
   <div class="repositories">
