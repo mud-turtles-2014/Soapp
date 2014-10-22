@@ -10,8 +10,8 @@
 
   def index
     @user = current_user
-    @soapps_repos = @user.repos.all
-    @soapps_repos_commits = @user.repos.includes(:commits)
+    @soapps_repos = @user.repos.order(:last_commit)
+    @soapps_repos_commits = @user.repos.includes(:commits).order(:last_commit)
 
     # used for the new button
     @github_repos = get_github_repos
@@ -45,7 +45,7 @@
 
   def show
     @user = current_user
-    repo = Repo.find(params[:id])
+    repo = Repo.find(params[:id]).order(last_commit)
     @repo_commits = heat_map(repo.commits)
     branches = repo.branches
     @non_user_branches = branches.where.not(user_id: @user.id)
