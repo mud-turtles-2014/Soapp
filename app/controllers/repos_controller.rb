@@ -1,5 +1,5 @@
  class ReposController < ApplicationController
-
+  before
 
   def index
     @user = current_user
