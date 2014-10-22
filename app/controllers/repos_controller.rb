@@ -45,7 +45,7 @@
 
   def show
     @user = current_user
-    repo = Repo.find(params[:id]).order(:last_commit)
+    repo = Repo.find(params[:id])
     @repo_commits = heat_map(repo.commits)
     branches = repo.branches
     @non_user_branches = branches.where.not(user_id: @user.id)
