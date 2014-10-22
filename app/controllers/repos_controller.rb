@@ -1,5 +1,12 @@
  class ReposController < ApplicationController
-  before
+  before_action :require_login
+
+  def require_login
+    unless session[:user_id]
+      redirect_to '/auth/github/'
+    end
+  end
+
 
   def index
     @user = current_user
@@ -34,12 +41,6 @@
     @repo = Repo.find_or_create_by(name: repo_params)
     @user.repos << @repo
 
-    # render json: @repo
-  	# if @repo.save
-  	# 	redirect_to #instructions_path
-  	# else
-  	# 	redirect_to new_repo_path
-  	# end
     redirect_to repos_path
   end
 
