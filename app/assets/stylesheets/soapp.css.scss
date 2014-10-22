@@ -207,6 +207,7 @@ header {
   .content-repo {
     width: 100%;
     float: right;
+    // text-wrap: unrestricted;
     .card-repo {
       position: relative;
       padding: 20px;
@@ -215,7 +216,7 @@ header {
       background: #e8e8e8;
       box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
       float: left;
-      // width: 40%;
+      width: 35%;
 
       width: 350px;
       height: 600px;
@@ -324,6 +325,7 @@ header {
   font-size: .9em;
 }
 
+
 @media only screen and (min-width : 800px) {
   .repositories{
     max-width: 800px;
@@ -334,4 +336,8 @@ header {
   .repositories{
     max-width: 1200px;
   }
+}
+
+.branch_list h3 {
+    overflow: scroll;
 }
