@@ -21,8 +21,8 @@ View.updateCards = function(data){
   View.updateCardRepo(data);
 };
 
-// View.makeCardRepo = function(){
-// };
+View.makeCardRepo = function(){
+};
 
 View.updateCardRepo = function(data){
 
@@ -31,7 +31,7 @@ View.updateCardRepo = function(data){
     $card_ul.empty();
 
     card.commits.forEach(function(commit){
-      $card_ul.prepend(View.createReoiCardLiTag(commit.image, commit.message, commit.id, commit.updated_at));
+      $card_ul.append(View.createReoiCardLiTag(commit.image, commit.message, commit.id, commit.updated_at));
     });
   });
 };
@@ -45,7 +45,7 @@ View.updateMyCardRepo = function(data){
   $my_card_ul.empty();
 
   data.my_card.commits.forEach(function(commit){
-    $my_card_ul.prepend(View.createMyCardLiTag(commit.message, commit.repo_name, commit.updated_at, commit.id));
+    $my_card_ul.append(View.createMyCardLiTag(commit.message, commit.repo_name, commit.updated_at, commit.id));
   });
 };
 
