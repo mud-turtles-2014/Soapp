@@ -6,7 +6,7 @@ before_action :get_commit, except: :create_commit
     repo = Repo.find_by(name: repo_params[:repo])
     user = User.find_by(email: commit_email_params[:email])
       unless repo && user
-         404
+         retun 404
          render nothing: true
       end
 
