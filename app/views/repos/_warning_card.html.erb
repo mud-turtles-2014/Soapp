@@ -1,10 +1,10 @@
-
+<% if @collisions.length > 0 %>
 <div class="card-repo", id="warning-card">
   <h2>WARNING CARD</h2>
   <h4>POTENTIAL CONFLICTS</h4>
   <hr>
   <ul class="branch_list">
-    <% if @collisions.length > 0 %>
+
       <% @collisions.each do |problem| %>
         <li>
           <%= image_tag(@user.avatar_url) %>
