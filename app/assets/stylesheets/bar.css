@@ -53,3 +53,6 @@
 nav li {
   padding-left: 30px;
 }
+header nav li a:visited {
+  color: white;
+}
