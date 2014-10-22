@@ -1,5 +1,7 @@
 <div class="new-repo">
-  <%=link_to "ADD", new_repo_path %>
+  <%=link_to "ADD", new_repo_path, class: :add_button %>
+  <%= link_to "Download Rake Task", download_rakefile_instructions_path, class: :download_button %>
+  <%= link_to "Download Hook File", download_hook_instructions_path, class: :download_button %>
   <p>new repo</p>
 
   <div class="display-repos">

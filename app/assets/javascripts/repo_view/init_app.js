@@ -2,7 +2,7 @@ $(".repos.index").ready(function(){
 
   Repo.getNewCommits();
 
-  $('.new-repo a').click(function(e){
+  $('.add_button').click(function(e){
     e.preventDefault();
     View.toggle_new_btn();
   });
