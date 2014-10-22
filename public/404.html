@@ -1,33 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Soapp</title>
-  <meta name="viewport" content="width=device-width">
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon">
+  <title>The change you wanted was rejected (422)</title>
+  <style>
+  body {
+    background-color: #1C1F1F;
+    color: #2E2F30;
+    text-align: center;
+    font-family: arial, sans-serif;
+  }
+
+  div.dialog {
+    width: 25em;
+    margin: 4em auto 0 auto;
+    border: 1px solid #CCC;
+    border-right-color: #999;
+    border-left-color: #999;
+    border-bottom-color: #BBB;
+    border-top: #00D2D3 solid 4px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    background-color: white;
+    padding: 7px 4em 0 4em;
+  }
+  a:visited, a {
+    color: #00D2D3;
+    text-decoration: none;
+  }
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+  h1 {
+    font-size: 100%;
+    color: #00D2D3;
+    line-height: 1.5em;
+  }
+
+  body > p {
+    width: 33em;
+    margin: 0 auto 1em;
+    padding: 1em 0;
+    background-color: white;
+    border: 1px solid #00D2D3;
+    border-right-color: #00D2D3;
+    border-bottom-color: #00D2D3;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-color: #00D2D3;
+
+  }
+  </style>
 </head>
-<body class="<%= controller_name %> <%= action_name %> ">
-  <header>
-    <div class="logo"><%= link_to 'SOAPP', root_path %></div>
-    <nav>
-      <ul>
-          <li><%= link_to 'instructions', instructions_path %></li>
-          <li><%= link_to 'repos', repos_path %></li>
-        <% if session[:user_id] %>
-          <li><%= link_to 'log out', logout_path %></li>
-        <% else %>
-          <li><%= link_to 'log in', '/auth/github/' %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </header>
-  <!-- This file lives in public/404.html -->
+
+<body>
+  <!-- This file lives in public/422.html -->
   <div class="dialog">
     <h1>SOAPP is sorry.</h1>
-    <p>Make sure that you are signed in with github.</p>
+    <p>Maybe you tried to change something you didn't have access to.</p>
   </div>
-  <p></p>
+  <p><a href="http://state-of-the-app.herokuapp.com/">go back to <br>SOAPP</a></p>
 </body>
 </html>
