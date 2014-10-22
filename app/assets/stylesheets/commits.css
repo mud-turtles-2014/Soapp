@@ -10,5 +10,27 @@
 }
 #display_name{
   color:#00D2D3;
-  padding:10px;
+  padding-left:7%;
 }
+#mad_key {
+  color:#00D2D3;
+  word-spacing: 10px;
+  letter-spacing: 2px;
+}
+ .repositories .content-repo .card-repo .branch_list .modified {
+  color: #ED958C;
+  letter-spacing: 1px;
+}
+.repositories .content-repo .card-repo .branch_list .added {
+  color: #7FAD45;
+  letter-spacing: 1px;
+}
+
+ .repositories .content-repo .card-repo .branch_list .deleted {
+  color: #A297CF;
+  letter-spacing: 1px;
+}
+ .repositories .content-repo .card-repo .branch_list li {
+  line-height: 150%;
+  margin-top: -9px;
+ }
