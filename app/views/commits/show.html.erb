@@ -47,13 +47,14 @@
             <li>Branch: <br>-<%= commit.branch.name %></li>
 
             <li>Changes:
+              <br>
               <% commit.file_changes.each do |change| %>
-                <p><%= mad(change.action_taken) %></p>
-                <p>-<%= change.file_path %></p><br>
+                <%= mad(change.action_taken) %>-<%= change.file_path %><br>
               <% end %>
+              <br>
               Full record of commit:<br>
               <code><pre>
-              <%= commit.full_diff%>
+              <p><%= commit.full_diff%></p>
             </pre></code>
             </li>
           </ul>
