@@ -38,14 +38,14 @@
           <ul class="branch_list">
             <li>Message: <%= commit.message %></li>
 
-            <li>User: <%= commit.branch.user.name %></li>
+            <li>User: <br>-<%= commit.branch.user.name %></li>
 
-            <li>Branch: <%= commit.branch.name %></li>
+            <li>Branch: <br>-<%= commit.branch.name %></li>
 
             <li>Changes:
               <% commit.file_changes.each do |change| %>
                 <p><%= mad(change.action_taken) %></p>
-                <p><%= change.file_path %></p><br>
+                <p>-<%= change.file_path %></p><br>
               <% end %>
               Full record of commit:<br>
               <code><pre>

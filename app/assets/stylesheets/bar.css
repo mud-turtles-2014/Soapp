@@ -50,3 +50,6 @@
   font-style: bold;
   background-color: #FFECB6;
 }
+nav li {
+  padding-left: 30px;
+}
