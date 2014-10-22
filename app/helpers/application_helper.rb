@@ -13,9 +13,9 @@ module ApplicationHelper
   end
 
   def mad(change)
-    return "<p class='modified'>Modified ".html_safe if change == "M"
-    return "<p class='added'> Added ".html_safe if change == "A"
-    return "<p class='deleted'>Deleted ".html_safe if change == "D"
+    return "<span class='modified'>Modified </span>".html_safe if change == "M"
+    return "<span class='added'> Added </span>".html_safe if change == "A"
+    return "<span class='deleted'>Deleted </span>".html_safe if change == "D"
   end
 
 end
