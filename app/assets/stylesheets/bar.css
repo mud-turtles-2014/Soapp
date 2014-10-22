@@ -24,11 +24,11 @@
 }
 
 #heat-map-card {
-  background-color: #F8C7AD;
+  background-color: #ADE2AB;
 }
 #heat-map-card h2 {
   color: #C33A1A;
-  font-style: bold;
+  font-style: bold
 }
 #heat-map-card:hover{
   font-style: bold;
