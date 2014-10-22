@@ -6,7 +6,8 @@ before_action :get_commit, except: :create_commit
     repo = Repo.find_by(name: repo_params[:repo])
     user = User.find_by(email: commit_email_params[:email])
       unless repo && user
-        return 404
+        404
+        render nothing: true
       end
 
     file_changes = FileChange.parse_and_create(diff_params[:diff])
