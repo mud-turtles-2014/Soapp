@@ -4,9 +4,10 @@ class InstructionsController < ApplicationController
     send_file "#{Rails.root}/public/Soapp.rake"
   end
 
-  def index
-
-  end
+def index
+  p "ALL THE THINGS!!!!!!!!"
+  render :instructions
+end
 
   def download_hook
     send_file "#{Rails.root}/public/post-commit"
