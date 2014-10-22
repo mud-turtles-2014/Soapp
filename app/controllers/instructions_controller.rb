@@ -5,7 +5,6 @@ class InstructionsController < ApplicationController
   end
 
 def index
-  p "ALL THE THINGS!!!!!!!!"
   render :instructions
 end
 
