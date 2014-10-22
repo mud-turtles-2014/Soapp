@@ -45,6 +45,7 @@ input[type=submit]:hover{
 
 header {
   width: 100%;
+  min-width: 400px;
   height: 40px;
   background-color: #00D2D3;
   display: block;
@@ -332,6 +333,20 @@ header {
   font-size: .9em;
 }
 
+
+
+@media only screen and (max-width : 410px) {
+  header{
+    font-size: 1em;
+    li{
+      padding-left: 0;
+    }
+  }
+
+  .repositories{
+    width: 400px;
+  }
+}
 
 @media only screen and (min-width : 800px) {
   .repositories{
