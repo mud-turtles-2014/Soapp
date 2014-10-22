@@ -7,17 +7,17 @@ State of the App
 -ruby version
 
 -sys dependencies
-  mac 
+  mac
   using the hook
 
- database 
- 	postgresql
+ database
+   postgresql
 
  run test suite
 
  gems
 
-SOAPP 
+SOAPP
 ==============
 ============
 
