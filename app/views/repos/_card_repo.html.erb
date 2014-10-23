@@ -5,10 +5,10 @@
 
       <h2><%= repo.display_name %></h2>
       <p class="github">
-        <a href='<%=repo.name%>'>
+        <a href='<%=repo.name%>' target="_blank">
           <%= image_tag(("github-icon.png"), :class => "git_logo")%>
         </a>
-        <%= link_to repo.name , repo.name, :class => "git_logo_link" %>
+        <%= link_to repo.name , repo.name, :class => "git_logo_link", target: '_blank' %>
       </p>
       <h4>LATEST COMMITS</h4>
       <hr>
