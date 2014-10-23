@@ -10,13 +10,13 @@
         </a>
         <%= link_to repo.name , repo.name, :class => "git_logo_link" %>
       </p>
-      <h4>LASTEST COMMITS</h4>
-      <hr><br>
+      <h4>LATEST COMMITS</h4>
+      <hr>
       <ul class="branch_list">
         <% repo.commits.order(:updated_at).reverse_order.limit(6).each do |commit| %>
           <li>
             <%= image_tag(commit.branch.user.avatar_url, :class => "git_img") %>
-            <span><%= link_to commit.message, commit_path(commit) %></span><br>
+            <span><%= link_to commit.message, commit_path(commit) %></span>
             <p class="time_hover"><%=form_time(commit.created_at)%></p>
           </li>
         <% end %>

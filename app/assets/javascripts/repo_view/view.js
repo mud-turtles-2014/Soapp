@@ -37,7 +37,7 @@ View.updateCardRepo = function(data){
 };
 
 View.createReoiCardLiTag = function(image, message, id, updated_at){
-  return "<li><img class='git_img' src="+image+"><span><a href='/commits/"+id+"'>"+message+"</a></span><br><p class='time_hover'>"+updated_at+"</p></li>";
+  return "<li><img class='git_img' src="+image+"><span><a href='/commits/"+id+"'>"+message+"</a></span><p class='time_hover'>"+updated_at+"</p></li>";
 };
 
 View.updateMyCardRepo = function(data){

@@ -3,6 +3,7 @@ var Repo = {
 }
 
 Repo.getNewCommits = function(){
+  console.log("boop");
   $.ajax({
     type: "GET",
     url: '/repos',
@@ -12,6 +13,7 @@ Repo.getNewCommits = function(){
       View.updateCards(data);
       Repo.lastRequest = data;
     }
+
   }).fail(function(data){
     console.log("update failed");
   });

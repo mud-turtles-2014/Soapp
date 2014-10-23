@@ -1,12 +1,7 @@
 $(document).ready(function(){
-
+  var intervalNewCommits;
   $(".repos.index").ready(function(){
-
-
-    setInterval(function() {
-    Repo.getNewCommits() },
-    3000);
-
+    intervalNewCommits = setInterval(function() { Repo.getNewCommits() }, 3000);
     $('.add_button').click(function(e){
       e.preventDefault();
       View.toggle_new_btn();
@@ -17,7 +12,7 @@ $(document).ready(function(){
     });
   });
   $(".commits").ready(function(){
-
+    clearInterval(intervalNewCommits);
   });
 
 });
