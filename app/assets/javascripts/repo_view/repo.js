@@ -9,6 +9,7 @@ Repo.getNewCommits = function(){
     url: '/repos',
     dataType: 'json'
   }).done(function(data){
+    console.log("success");
     if (JSON.stringify(Repo.lastRequest) != JSON.stringify(data)){
       View.updateCards(data);
       Repo.lastRequest = data;
