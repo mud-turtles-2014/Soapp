@@ -1,6 +1,5 @@
+'use strict';
 $(document).ready(function(){
-
-
   $('.add_button').click(function(e){
       e.preventDefault();
       View.toggle_new_btn();
@@ -13,13 +12,7 @@ $(document).ready(function(){
   var intervalNewCommits;
   intervalNewCommits = setInterval(function() { Repo.getNewCommits() }, 3000);
 
-
-  $(".all_repos").ready(function(){
-
-  });
-
   $(".commits").ready(function(){
     clearInterval(intervalNewCommits);
   });
-
 });
