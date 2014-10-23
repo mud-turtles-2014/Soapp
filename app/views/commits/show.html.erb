@@ -3,9 +3,6 @@
   <h1 id="display_name"><%=@repo.display_name%></h1>
 
 
-
-
-<% @lastest_commits.each do |commit| %>
 <div class="commits" class="all-commit-container">
   <div class="repositories">
     <div class="content-repo">
@@ -15,21 +12,21 @@
           <h4>LATEST COMMITS</h4>
           <hr>
           <ul class="branch_list">
-            <li>Message: <%= commit.message %></li>
+            <li>Message: <%= @commit.message %></li>
 
-            <li>User: <br>-<%= commit.branch.user.name %></li>
+            <li>User: <br>-<%= @commit.branch.user.name %></li>
 
-            <li>Branch: <br>-<%= commit.branch.name %></li>
+            <li>Branch: <br>-<%= @commit.branch.name %></li>
 
             <li>Changes:
               <br>
-              <% commit.file_changes.each do |change| %>
+              <% @commit.file_changes.each do |change| %>
                 <%= mad(change.action_taken) %>-<%= change.file_path %><br>
               <% end %>
               <br>
               Full record of commit:<br>
               <code><pre>
-              <p><%= commit.full_diff%></p>
+              <p><%= @commit.full_diff%></p>
             </pre></code>
             </li>
           </ul>
@@ -37,6 +34,5 @@
       </div>
     </div>
   </div>
-<%end%>
 </div>
 
