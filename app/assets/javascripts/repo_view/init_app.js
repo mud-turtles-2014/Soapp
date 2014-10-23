@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  // var intervalNewCommits;
+  var intervalNewCommits;
   intervalNewCommits = setInterval(function() { Repo.getNewCommits() }, 3000);
   $(".all_repos").ready(function(){
     $('.add_button').click(function(e){
@@ -14,7 +14,7 @@ $(document).ready(function(){
   });
 
   $(".commits").ready(function(){
-    // clearInterval(intervalNewCommits);
+    clearInterval(intervalNewCommits);
   });
 
 });
