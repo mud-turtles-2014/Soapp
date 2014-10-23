@@ -1,6 +1,7 @@
 <div class="all_repos">
   <div class="repositories">
     <%= link_to "back" , repos_path, class: "btn-back" %>
+    <h1 id="display_name"><%=@repo.display_name%></h1>
     <div class="content-repo">
       <%= render "heat_map" %>
       <%= render "warning_card" %>
