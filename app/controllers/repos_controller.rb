@@ -16,11 +16,11 @@
     @github_repos = get_github_repos
     @repo = Repo.new
 
-    respond_to do |format|
-      format.html{render 'index.html.erb'}
-      format.json{render 'index.json.jbuilder'}
-    end
-
+    # respond_to do |format|
+    #   format.html{render 'index.html.erb'}
+    #   format.json{render 'index.json.jbuilder'}
+    # end
+    render 'index.html.erb'
   end
 
   def heat_map(repo_commits)
