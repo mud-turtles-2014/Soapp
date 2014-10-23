@@ -9,18 +9,11 @@
 
 
   def index
-    @user = current_user
-    @soapps_repos = @user.repos.order(:last_commit)
-    @soapps_repos_commits = @user.repos.includes(:commits).order(:last_commit)
+    load_repos
+  end
 
-    @github_repos = get_github_repos
-    @repo = Repo.new
-
-    respond_to do |format|
-      format.html{render 'index.html.erb'}
-      format.json{render 'index.json.jbuilder'}
-    end
-
+  def latest
+    load_repos
   end
 
   def heat_map(repo_commits)
@@ -77,6 +70,15 @@ private
     @user = current_user
     github = Github.new  oauth_token: @user.token
     github.repos.list.map { |repo| repo.clone_url }
+  end
+
+  def load_repos
+    @user = current_user
+    @soapps_repos = @user.repos.order(:last_commit)
+    @soapps_repos_commits = @user.repos.includes(:commits).order(:last_commit)
+
+    @github_repos = get_github_repos
+    @repo = Repo.new
   end
 
 end
