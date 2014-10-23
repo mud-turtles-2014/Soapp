@@ -45,5 +45,5 @@
 .repositories .content-repo .card-repo .branch_list li a {
   overflow-x: hidden;
   display: block;
-  width: 260px;
+  max-width: 260px;
 }
