@@ -5,11 +5,10 @@
       <hr>
       <ul class="branch_list">
         <% branch.commits.last(6).each do |commit| %>
-          <br>
           <li>
             <%= image_tag(commit.branch.user.avatar_url) %>
             <span><b><%= link_to commit.message, commit_path(commit) %></b></span>
-            <br>Branch name: <%= branch.name %>
+            Branch name: <%= branch.name %>
             <p class="time_hover"><%= form_time(commit.updated_at) %></p>
           </li>
         <% end %>

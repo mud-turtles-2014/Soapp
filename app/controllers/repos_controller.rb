@@ -33,7 +33,7 @@
         all_paths
       end
       order = all_paths.inject(Hash.new(0)){|path, freq| path[freq] += 1 ; path}.to_a.sort{|a,b|b[1]<=>a[1] }
-      order
+      order.last(5)
   end
 
   def create
