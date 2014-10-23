@@ -1,33 +1,26 @@
-<div class="repositories">
-  <%= link_to "back" , repos_path, class: "btn-back" %>
-  <h1 id="display_name"><%=@repo.display_name%></h1>
-
-
 <div class="commits" class="all-commit-container">
   <div class="repositories">
+    <%= link_to "back" , repos_path, class: "btn-back" %>
+    <h1 id="display_name"><%=@repo.display_name%></h1>
+
     <div class="content-repo">
       <div class="card-repo"  id="commit-content-display">
-
+          <h2>User: <%= @commit.branch.user.name %> </h2>
+          <h3>Branch: <%= @commit.branch.name %></h3>
 
           <h4>LATEST COMMITS</h4>
           <hr>
           <ul class="branch_list">
-            <li>Message: <%= @commit.message %></li>
-
-            <li>User: <br>-<%= @commit.branch.user.name %></li>
-
-            <li>Branch: <br>-<%= @commit.branch.name %></li>
-
-            <li>Changes:
-              <br>
+            <div>MESSAGE: <%= @commit.message %></div>
+            <li>
               <% @commit.file_changes.each do |change| %>
-                <%= mad(change.action_taken) %>-<%= change.file_path %><br>
+                <%= mad(change.action_taken) %>-<%= change.file_path %>
               <% end %>
-              <br>
-              Full record of commit:<br>
-              <code><pre>
-              <p><%= @commit.full_diff%></p>
-            </pre></code>
+              <code>
+                <pre>
+                  <p><%= @commit.full_diff%></p>
+                </pre>
+              </code>
             </li>
           </ul>
         </div>
