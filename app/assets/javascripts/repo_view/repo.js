@@ -6,7 +6,7 @@ Repo.getNewCommits = function(){
   console.log("boop");
   $.ajax({
     type: "GET",
-    url: '/repos',
+    url: '/repos/latest',
     dataType: 'json'
   }).done(function(data){
     if (JSON.stringify(Repo.lastRequest) != JSON.stringify(data)){
