@@ -11,7 +11,7 @@
             <%=link_to commit.message, commit_path(commit)%>
             <p><%= commit.branch.repo.name %></p>
             <p class="time_hover"><%= form_time(commit.updated_at) %></p>
-          </li><br>
+          </li>
       <% end %>
     </ul>
   </div>
