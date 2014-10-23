@@ -13,7 +13,7 @@
       <h4>LASTEST COMMITS</h4>
       <hr><br>
       <ul class="branch_list">
-        <% repo.commits.last(6).each do |commit| %>
+        <% repo.commits.order(:updated_at).reverse_order.limit(6).each do |commit| %>
           <li>
             <%= image_tag(commit.branch.user.avatar_url, :class => "git_img") %>
             <span><%= link_to commit.message, commit_path(commit) %></span><br>
