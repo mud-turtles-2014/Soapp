@@ -3,19 +3,17 @@ var Repo = {
 }
 
 Repo.getNewCommits = function(){
-  console.log("calling server");
   $.ajax({
     type: "GET",
     url: '/repos',
     dataType: 'json'
   }).done(function(data){
-    console.log("success");
     if (JSON.stringify(Repo.lastRequest) != JSON.stringify(data)){
       View.updateCards(data);
       Repo.lastRequest = data;
     }
   }).fail(function(data){
-    console.log("fail");
+    console.log("update failed");
   });
 };
 

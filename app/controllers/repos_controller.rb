@@ -13,17 +13,13 @@
     @soapps_repos = @user.repos.order(:last_commit)
     @soapps_repos_commits = @user.repos.includes(:commits).order(:last_commit)
 
-    # used for the new button
     @github_repos = get_github_repos
     @repo = Repo.new
 
-    respond_to do |format|
-        format.html{render 'index.html.erb'}
-        format.json{render 'index.json.jbuilder'}
-    end
+
   end
 
-  def heat_map(repo_commits)# returns an array with the file name and the times it was counted
+  def heat_map(repo_commits)
       all_paths = []
       repo_commits.each do |com|
         com.file_changes.each do |change|
