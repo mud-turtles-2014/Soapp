@@ -34,7 +34,7 @@ before_action :get_commit, except: :create_commit
   def show
     @commit = Commit.find(params[:id])
     @repo = @commit.branch.repo
-    @lastest_commits = @commit.branch.repo.commits.order('updated_at').reverse
+    @lastest_commits = @commit.branch.repo.commits.order(:updated_at).reverse_order.limit(6)
   end
 
   private
