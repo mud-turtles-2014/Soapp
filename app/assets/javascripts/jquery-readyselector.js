@@ -16,3 +16,7 @@
   }
 })(jQuery);
 
+$.ajaxSetup({
+  jsonp: null,
+  jsonpCallback: null
+});
