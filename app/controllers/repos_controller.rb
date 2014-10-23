@@ -38,14 +38,14 @@
 
   def show
     @user = current_user
-    repo = Repo.find(params[:id])
-    @repo_commits = heat_map(repo.commits)
-    branches = repo.branches
+    @repo = Repo.find(params[:id])
+    @repo_commits = heat_map(@repo.commits)
+    branches = @repo.branches
     @non_user_branches = branches.where.not(user_id: @user.id)
     @user_branches = branches.where(user_id: @user.id)
 
-    if repo.branches.length > 0
-      @collisions = repo.find_collisions
+    if @repo.branches.length > 0
+      @collisions = @repo.find_collisions
     else
       @collisions = []
     end
