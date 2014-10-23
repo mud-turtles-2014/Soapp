@@ -1,8 +1,10 @@
   <% @non_user_branches.each do |branch| %>
     <div class="card-repo">
       <h2><%= branch.user.name.upcase %></h2>
-      <h4>LASTEST COMMITS</h4>
+      <h4>Branch: <%= branch.name %></h4>
       <hr>
+      <h4>Latest Commits:</h4>
+      <br>
       <ul class="branch_list">
         <% branch.commits.order(:updated_at).reverse_order.limit(6).each do |commit| %>
           <li>
