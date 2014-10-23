@@ -1,3 +1,6 @@
+<div class="repositories">
+  <%= link_to "back" , repos_path, class: "btn-back" %>
+</div>
 <div class="install_instructions">
   <h1>Using Soapp</h1>
 
@@ -25,5 +28,6 @@
   <p>Download the git hook file:</p>
     <%= link_to "Download Hook File", action: "download_hook"%>
   <p>Copy the file to the .git/hooks directory within your repo. Now, while in the hooks directory type: <code> chmod +x post-commit </code>. This will set the hook to executable.</p>
+
 
 </div>

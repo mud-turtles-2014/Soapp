@@ -1,4 +1,9 @@
-<h1 id="display_name"><%=@repo.display_name%></h1>
+<div class="repositories">
+  <%= link_to "back" , repos_path, class: "btn-back" %>
+  <h1 id="display_name"><%=@repo.display_name%></h1>
+
+
+
 
 <% @lastest_commits.each do |commit| %>
 <div class="commits" class="all-commit-container">
@@ -33,4 +38,5 @@
     </div>
   </div>
 <%end%>
+</div>
 
