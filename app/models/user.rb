@@ -36,9 +36,4 @@ class User < ActiveRecord::Base
     my_user
   end
 
-        #   commits = @user.latest_commits
-      #   commits.each do |commit|
-      #     @repos << commit.branch.repo.name
-      #   end
-
 end
