@@ -1,10 +1,13 @@
 <div class="all_repos">
   <div class="repositories">
     <%= link_to "back" , repos_path, class: "btn-back" %>
+    <h1 id="display_name"><%=@repo.display_name%></h1>
     <div class="content-repo">
-      <%= render "non_user_commits" %>
-      <%= render "warning_card" %>
       <%= render "heat_map" %>
+      <%= render "warning_card" %>
+      <%= render "non_user_commits" %>
+
+
     </div>
   </div>
 </div>

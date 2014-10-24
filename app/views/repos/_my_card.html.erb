@@ -1,8 +1,8 @@
 <div id='my_card' class="card-repo">
   <%= image_tag(@user.avatar_url) %>
-  <h3>WELCOME BACK <%= @user.name.upcase %>!</h3>
+  <h3>WELCOME <%= @user.name.upcase %>!</h3>
 
-  <div class="content-commits">
+  <div class="content-commit">
     <h4>MY LAST COMMITS</h4>
     <hr>
     <ul class="branch_list">
@@ -10,7 +10,7 @@
           <li>
             <%=link_to commit.message, commit_path(commit)%>
             <p><%= commit.branch.repo.name %></p>
-            <p><%= form_time(commit.updated_at) %></p>
+            <p class="time_hover"><%= form_time(commit.updated_at) %></p>
           </li>
       <% end %>
     </ul>

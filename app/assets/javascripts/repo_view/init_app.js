@@ -1,8 +1,6 @@
-$(".repos.index").ready(function(){
-
-  Repo.getNewCommits();
-
-  $('.new-repo a').click(function(e){
+'use strict';
+$(document).ready(function(){
+  $('.add_button').click(function(e){
     e.preventDefault();
     View.toggle_new_btn();
   });
@@ -10,8 +8,11 @@ $(".repos.index").ready(function(){
   $('.btn-delete').on('ajax:success', function(data) {
     $(this).parent().remove();
   });
-});
 
-$(".commits").ready(function(){
+  var intervalNewCommits;
+  intervalNewCommits = setInterval(function() { Repo.getNewCommits() }, 3000);
 
+  $(".commits").ready(function(){
+    clearInterval(intervalNewCommits);
+  });
 });

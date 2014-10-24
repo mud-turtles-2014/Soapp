@@ -1,10 +1,13 @@
-<div class="instructions">
+<div class="repositories">
+  <%= link_to "back" , repos_path, class: "btn-back" %>
+</div>
+<div class="install_instructions">
   <h1>Using Soapp</h1>
 
   <h2>Using Soapp with a Rails application</h2>
 
-    <p>Download the rakefile:</p>
-    <%= link_to "Download Rakefile", action: "download_rakefile"%>
+    <p>Download the rake task file:</p>
+    <%= link_to "Download Rake Task", action: "download_rakefile"%>
     <p>and place the file within the app/lib/task folder of the Rails project you want to track.</p>
 
 
@@ -25,5 +28,6 @@
   <p>Download the git hook file:</p>
     <%= link_to "Download Hook File", action: "download_hook"%>
   <p>Copy the file to the .git/hooks directory within your repo. Now, while in the hooks directory type: <code> chmod +x post-commit </code>. This will set the hook to executable.</p>
+
 
 </div>

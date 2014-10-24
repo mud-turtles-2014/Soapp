@@ -13,10 +13,6 @@ class Repo < ActiveRecord::Base
       files << commit.path_names
     end
     collisions = files.detect{ |change| files.count(change) > 1}
-      unless collisions
-        return []
-      end
-    collisions
   end
 
   def make_display_name
@@ -24,15 +20,15 @@ class Repo < ActiveRecord::Base
   end
 
   def show
-    @user = User.find(session[:user_id])
-    repo = Repo.find(params[:id])
-    @repo_commits = heat_map(repo.commits)
-    branches = repo.branches
+    @user = current_user
+    @repo = Repo.find(params[:id])
+    @repo_commits = heat_map(r@epo.commits)
+    branches = @repo.branches
     @non_user_branches = branches.where.not(user_id: @user.id)
     @user_branches = branches.where(user_id: @user.id)
 
-    if repo.branches.length > 0
-      @collisions = branches.first.repo.find_collisions
+    if @repo.branches.length > 0
+      @collisions = branches.first.@repo.find_collisions
     else
       @collisions = []
     end

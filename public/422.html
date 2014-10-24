@@ -4,7 +4,7 @@
   <title>The change you wanted was rejected (422)</title>
   <style>
   body {
-    background-color: #EFEFEF;
+    background-color: #1C1F1F;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
@@ -17,16 +17,23 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #00D2D3 solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
     padding: 7px 4em 0 4em;
   }
-
+  a:visited, a {
+    color: #00D2D3;
+    text-decoration: none;
+  }
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
   h1 {
     font-size: 100%;
-    color: #730E15;
+    color: #00D2D3;
     line-height: 1.5em;
   }
 
@@ -34,15 +41,14 @@
     width: 33em;
     margin: 0 auto 1em;
     padding: 1em 0;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-bottom-color: #999;
+    background-color: white;
+    border: 1px solid #00D2D3;
+    border-right-color: #00D2D3;
+    border-bottom-color: #00D2D3;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);
+    border-top-color: #00D2D3;
+
   }
   </style>
 </head>
@@ -50,9 +56,9 @@
 <body>
   <!-- This file lives in public/422.html -->
   <div class="dialog">
-    <h1>The change you wanted was rejected.</h1>
+    <h1>SOAPP is sorry.</h1>
     <p>Maybe you tried to change something you didn't have access to.</p>
   </div>
-  <p>If you are the application owner check the logs for more information.</p>
+  <p><a href="http://state-of-the-app.herokuapp.com/">go back to <br>SOAPP</a></p>
 </body>
 </html>

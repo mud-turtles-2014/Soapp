@@ -1,6 +1,8 @@
 <div class="new-repo">
-  <%=link_to "NEW", new_repo_path %>
-  <p>add a repo</p>
+  <a class="add_button" href="">ADD</a>
+  <%= link_to "Download Rake Task", download_rakefile_instructions_path, class: :download_button %>
+  <%= link_to "Download Hook File", download_hook_instructions_path, class: :download_button %>
+  <p>new repo</p>
 
   <div class="display-repos">
     <h3>Select A Repo:</h3>

@@ -1,11 +1,11 @@
 class InstructionsController < ApplicationController
 
   def download_rakefile
-    send_file "#{Rails.root}/public/Soapp.rake"
+    send_file "#{Rails.root}/public/soapp.rake"
   end
 
-  def show
-
+  def index
+    render :instructions
   end
 
   def download_hook

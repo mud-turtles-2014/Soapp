@@ -2,16 +2,23 @@
 <html>
 <head>
   <title>Soapp</title>
+
   <meta name="viewport" content="width=device-width">
+  <meta http-equiv="expires" content="-1">
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon">
+
+
 </head>
 <body class="<%= controller_name %> <%= action_name %> ">
   <header>
     <div class="logo"><%= link_to 'SOAPP', root_path %></div>
     <nav>
       <ul>
+          <li><%= link_to 'instructions', instructions_path %></li>
+          <li><%= link_to 'repos', repos_path %></li>
         <% if session[:user_id] %>
           <li><%= link_to 'log out', logout_path %></li>
         <% else %>
@@ -23,6 +30,7 @@
   <%= flash[:notice] %>
 
   <%= yield %>
+
 
 </body>
 </html>

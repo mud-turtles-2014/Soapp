@@ -1,18 +1,22 @@
+'use strict';
 var Repo = {
   lastRequest : ""
 }
 
 Repo.getNewCommits = function(){
+  console.log("boop");
   $.ajax({
     type: "GET",
-    url: '/repos',
+    url: '/repos/latest',
     dataType: 'json'
   }).done(function(data){
     if (JSON.stringify(Repo.lastRequest) != JSON.stringify(data)){
       View.updateCards(data);
       Repo.lastRequest = data;
     }
-    setTimeout(function() { Repo.getNewCommits(); }, 3000);
+
+  }).fail(function(data){
+    console.log("update failed");
   });
 };
 

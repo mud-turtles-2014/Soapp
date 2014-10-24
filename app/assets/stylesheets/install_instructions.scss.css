@@ -1,0 +1,12 @@
+.install_instructions {
+  background-color: #E8E8E8;
+  position: relative;
+  min-width: 300px;
+  margin: auto;
+  margin-top: 3.5%;
+  margin-bottom: 3%;
+  padding: 5%;
+  padding-top: 0.3%;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  width: 70%;
+}
