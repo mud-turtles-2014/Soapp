@@ -44,6 +44,7 @@
     @non_user_branches = branches.where.not(user_id: @user.id)
     @user_branches = branches.where(user_id: @user.id)
 
+    @collisions = @repo.find_collisions
     if @repo.branches.length > 0
       @collisions = @repo.find_collisions
     else
