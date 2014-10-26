@@ -35,6 +35,7 @@ class Repo < ActiveRecord::Base
       @collisions = branches.first.repo.find_collisions
     else
       @collisions = []
-    end
+    end 
   end
+  
 end
