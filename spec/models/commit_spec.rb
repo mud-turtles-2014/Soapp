@@ -15,6 +15,14 @@ describe Commit do
 		expect(commit.errors[:message]).to include("can't be blank")
 	end
 
-	it "is invalid without a sha"
-	it "is invalid without a full diff"
+	it "is invalid without a sha" do
+		commit = Commit.new(sha: nil)
+		commit.valid?
+		expect(commit.errors[:sha]).to include("can't be blank")
+	end
+	it "is invalid without a full diff" do
+		commit = Commit.new(full_diff: nil)
+		commit.valid?
+		expect(commit.errors[:full_diff]).to include("can't be blank")
+	end
 end
