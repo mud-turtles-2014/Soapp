@@ -3,10 +3,10 @@ class CommitsController < ApplicationController
 before_action :get_commit, except: :create_commit
 
   def create_commit
-    repo = Repo.find_by(name: repo_params[:repo])
     user = User.find_by(email: commit_email_params[:email])
-      unless repo && user
-         retun 404
+    repo = user.repos.find_by(name: repo_params[:repo])
+      unless user && repo
+         404
          render nothing: true
       end
 
@@ -34,7 +34,7 @@ before_action :get_commit, except: :create_commit
   def show
     @commit = Commit.find(params[:id])
     @repo = @commit.branch.repo
-    @lastest_commits = @commit.branch.repo.commits.order(:updated_at).reverse_order.limit(6)
+    @lastest_commits = @repo.commits.order(:updated_at).reverse_order.limit(6)
   end
 
   private
