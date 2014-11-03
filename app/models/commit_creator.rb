@@ -6,7 +6,7 @@ class CommitCreator < ActiveType::Object
 	attribute :email, :string
 	attribute :user_id, :integer
 
-	attribute :repo, :string
+	attribute :repo_name, :string
 	attribute :repo_id, :integer
 
 	attribute :commit_id
@@ -38,12 +38,16 @@ class CommitCreator < ActiveType::Object
 	end
 
 	def find_repo
-		self.repo = self.user.repos.find_by(name: repo)
+    if self.user
+		  self.repo = self.user.repos.find_by(name: repo_name)
+      self.repo.update(last_commit: Time.now)
+    end
 	end
 
 	def find_branch
 		self.branch = self.repo.branches.find_or_create_by(name: branch)
-	end
+    self.branch.update(last_commit: Time.now)	
+  end
 
 	def create_commit
 		self.commit = Commit.create(message: self.message, sha: self.sha, full_diff: self.full_diff)

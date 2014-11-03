@@ -1,48 +1,15 @@
 class CommitsController < ApplicationController
 
-before_action :get_commit, except: :create_commit
-
   def create_commit
-
     build_commit
-    p @new_commit
-    # if @new_commit.save
-    #   200
-    #   render nothing: true
-    # else
-    #   404
-    #   render nothing: true
-    # end
-    200
-    render nothing: true
-    # Refactoring Everything under this line
-
-    # user = User.find_by(email: commit_email_params[:email])
-    # repo = user.repos.find_by(name: repo_params[:repo])
-    #   unless user && repo
-    #      404
-    #      render nothing: true
-    #   end
-
-    # file_changes = FileChange.parse_and_create(diff_params[:diff])
-    # commit = Commit.create(commit_params)
-    # commit.file_changes = file_changes
-    # branch = Branch.find_or_create_by(name: commit_params[:branch])
-    # user.branches << branch
-    # branch.commits << commit
-    # branch.update(last_commit: Time.now)
-
-
-    # repo.update(last_commit: Time.now)
-    # repo.branches << branch
-
-    # 200
-    # render nothing: true
-  end
-
-
-  def get_commit
-    @commit = Commit.find_by(sha: params[:id])
+    if @new_commit.save
+      200
+      render nothing: true
+    else
+      404
+      render nothing: true
+    end
+    
   end
 
   def show
@@ -54,7 +21,7 @@ before_action :get_commit, except: :create_commit
   private
 
   def commit_params
-    params.require(:commit).permit(:email,:sha,:message,:diff,:full_diff,:branch,:repo)
+    params.require(:commit).permit(:email,:sha,:message,:diff,:full_diff,:branch,:repo_name)
   end
 
   def branch_params
@@ -69,7 +36,7 @@ before_action :get_commit, except: :create_commit
     params.require(:commit).permit(:diff)
   end
   def repo_params
-    params.require(:commit).permit(:repo)
+    params.require(:commit).permit(:repo_name)
   end
 
   def build_commit
