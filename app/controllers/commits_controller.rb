@@ -4,31 +4,38 @@ before_action :get_commit, except: :create_commit
 
   def create_commit
 
-    
+    build_commit
+    if @new_commit.save
+      200
+      render nothing: true
+    else
+      404
+      render nothing: true
+    end
 
     # Refactoring Everything under this line
 
-    user = User.find_by(email: commit_email_params[:email])
-    repo = user.repos.find_by(name: repo_params[:repo])
-      unless user && repo
-         404
-         render nothing: true
-      end
+    # user = User.find_by(email: commit_email_params[:email])
+    # repo = user.repos.find_by(name: repo_params[:repo])
+    #   unless user && repo
+    #      404
+    #      render nothing: true
+    #   end
 
-    file_changes = FileChange.parse_and_create(diff_params[:diff])
-    commit = Commit.create(commit_params)
-    commit.file_changes = file_changes
-    branch = Branch.find_or_create_by(name: commit_params[:branch])
-    user.branches << branch
-    branch.commits << commit
-    branch.update(last_commit: Time.now)
+    # file_changes = FileChange.parse_and_create(diff_params[:diff])
+    # commit = Commit.create(commit_params)
+    # commit.file_changes = file_changes
+    # branch = Branch.find_or_create_by(name: commit_params[:branch])
+    # user.branches << branch
+    # branch.commits << commit
+    # branch.update(last_commit: Time.now)
 
 
-    repo.update(last_commit: Time.now)
-    repo.branches << branch
+    # repo.update(last_commit: Time.now)
+    # repo.branches << branch
 
-    200
-    render nothing: true
+    # 200
+    # render nothing: true
   end
 
 
@@ -45,7 +52,7 @@ before_action :get_commit, except: :create_commit
   private
 
   def commit_params
-    params.require(:commit).permit(:sha,:message,:full_diff,:branch,:repo)
+    params.require(:commit).permit(:email,:sha,:message,:diff,:full_diff,:branch,:repo)
   end
 
   def branch_params
@@ -62,6 +69,10 @@ before_action :get_commit, except: :create_commit
   def repo_params
     params.require(:commit).permit(:repo)
   end
-#comment
+
+  def build_commit
+    @new_commit = CommitCreator.new(commit_params)
+  end
+
 end
 
