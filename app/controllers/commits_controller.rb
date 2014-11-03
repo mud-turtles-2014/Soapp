@@ -5,14 +5,16 @@ before_action :get_commit, except: :create_commit
   def create_commit
 
     build_commit
-    if @new_commit.save
-      200
-      render nothing: true
-    else
-      404
-      render nothing: true
-    end
-
+    p @new_commit
+    # if @new_commit.save
+    #   200
+    #   render nothing: true
+    # else
+    #   404
+    #   render nothing: true
+    # end
+    200
+    render nothing: true
     # Refactoring Everything under this line
 
     # user = User.find_by(email: commit_email_params[:email])

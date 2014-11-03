@@ -9,6 +9,8 @@ class CommitCreator < ActiveType::Object
 	attribute :repo, :string
 	attribute :repo_id, :integer
 
+	attribute :commit_id
+
 	attribute :message
 	attribute :sha
 	attribute :diff
@@ -17,28 +19,26 @@ class CommitCreator < ActiveType::Object
 	belongs_to :user
 	belongs_to :repo
 	belongs_to :branch
+	belongs_to :commit
 
 	validates_presence_of :user, :repo
 
 	before_validation :find_user
 	before_validation :find_repo
-	
 
+	after_save :find_branch
 	after_save :create_commit
 	after_save :add_to_branch
-	after_save :add_to_repo
 	after_save :create_file_changes
 	
 	private
 
 	def find_user
 		self.user = User.find_by(email: email)
-		p self.user
-		p "done finding user"
 	end
 
 	def find_repo
-		repo = self.user.repos.find_by(name: repo)
+		self.repo = self.user.repos.find_by(name: repo)
 	end
 
 	def find_branch
