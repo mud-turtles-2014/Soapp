@@ -17,14 +17,13 @@ namespace :use do
               2.times{message.chop!}
               sha = `git log -1 --format='%H'`
               sha.chop!
-              repo = `git config --get remote.origin.url`
-              repo = repo.chop
+              repo_name = `git config --get remote.origin.url`
+              repo_name = repo_name.chop
               branch = branch.chop!
               uri = URI('http://state-of-the-app.herokuapp.com/create_commit')
               http = Net::HTTP.new(uri.host, uri.port)
               req = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
-              req.body = {commit:{sha: sha, email: email, repo: repo, diff: diff, message: message, full_diff: full_diff
-                }, branch:{ name: branch}}.to_json
+              req.body = {commit:{sha: sha, email: email, repo_name: repo_name, diff: diff, message: message, full_diff: full_diff, branch: branch}}.to_json
               res = http.request(req)
               puts res
 

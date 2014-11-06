@@ -6,7 +6,7 @@ class Commit < ActiveRecord::Base
 
 
 
-    validates :message, presence: true
+    validates_presence_of :message, :sha, :full_diff
 
     def path_names
       files = []
